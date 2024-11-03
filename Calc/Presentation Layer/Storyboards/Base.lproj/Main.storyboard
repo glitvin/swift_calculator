@@ -22,7 +22,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FP-9M-rIs">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="119.66666666666667"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIZ-Yy-Pjb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="WIZ-Yy-Pjb">
                                                 <rect key="frame" x="10" y="0.0" width="373" height="119.66666666666667"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                                 <nil key="textColor"/>

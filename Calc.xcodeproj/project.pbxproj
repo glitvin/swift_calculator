@@ -119,6 +119,7 @@
 		934F40692CC95D39001DC9A7 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				93E7C1532CBEE2D800BA186B /* LaunchScreen.storyboard */,
 				93E7C14E2CBEE2D700BA186B /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -176,7 +177,6 @@
 				930CC4B52CD54B7E00B92767 /* Swift Extension */,
 				934F406C2CC95D84001DC9A7 /* Data Layer */,
 				934F40672CC95CBD001DC9A7 /* Presentation Layer */,
-				93E7C1532CBEE2D800BA186B /* LaunchScreen.storyboard */,
 				93E7C1512CBEE2D800BA186B /* Assets.xcassets */,
 				934F406B2CC95D68001DC9A7 /* Bussnes Logic Layer */,
 				93E7C1562CBEE2D800BA186B /* Info.plist */,
