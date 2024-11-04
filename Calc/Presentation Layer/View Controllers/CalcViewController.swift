@@ -35,24 +35,8 @@ class CalcViewController: UIViewController {
     @IBOutlet var equalsButton: UIButton!
     
     // MARK: - Color Themes
-    var currentTheme: CalculatorTheme {
-        return CalculatorTheme(
-            extraFunctionColor: "#a6a6a6",
-            extraTitleColor: "#FFFFFF",
-            extraTitleFont: UIFont.systemFont(ofSize: 40, weight: .bold),
-            
-            operationFunctionColor: "#ff9f0a",
-            operationFunctionTitleColor: "#FFFFFF",
-            operationFunctionTitleFont: UIFont.systemFont(ofSize: 40, weight: .medium),
-            
-            pinpadColor: "#333333",
-            pinpadTitleColor: "#FFFFFF",
-            pinpadTitleFont: UIFont.systemFont(ofSize: 40, weight: .regular),
-            
-            backgroundColor: "#000000",
-            displayColor: "#FFFFFF",
-            displayFont: UIFont.systemFont(ofSize: 100, weight: .semibold)
-        )
+    private var currentTheme: CalculatorTheme {
+        return washedOutTheme
     }
 
     // MARK: - Calculator Engine
