@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fnj-eW-dhE">
-                                <rect key="frame" x="0.0" y="156" width="393" height="626"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fnj-eW-dhE">
+                                <rect key="frame" x="15" y="149.33333333333331" width="363" height="628.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FP-9M-rIs">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="119.66666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="151"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="WIZ-Yy-Pjb">
-                                                <rect key="frame" x="10" y="0.0" width="373" height="119.66666666666667"/>
+                                                <rect key="frame" x="10" y="0.0" width="343" height="151"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -37,11 +37,11 @@
                                             <constraint firstAttribute="bottom" secondItem="WIZ-Yy-Pjb" secondAttribute="bottom" id="mq4-Mv-kC3"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H98-5E-ssT">
-                                        <rect key="frame" x="0.0" y="129.66666666666669" width="393" height="91"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="H98-5E-ssT">
+                                        <rect key="frame" x="0.0" y="170.99999999999997" width="363" height="75.666666666666657"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfD-u0-eYb">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="91"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bfD-u0-eYb" secondAttribute="height" multiplier="1:1" id="T2M-vO-3wW"/>
@@ -53,7 +53,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nS-em-0Ic">
-                                                <rect key="frame" x="100.66666666666669" y="0.0" width="91" height="91"/>
+                                                <rect key="frame" x="95.666666666666686" y="0.0" width="76" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="1nS-em-0Ic" secondAttribute="height" multiplier="1:1" id="4r7-ub-Mne"/>
@@ -66,7 +66,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGI-mf-M9c">
-                                                <rect key="frame" x="201.66666666666666" y="0.0" width="90.666666666666657" height="91"/>
+                                                <rect key="frame" x="191.66666666666666" y="0.0" width="75.666666666666657" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="LGI-mf-M9c" secondAttribute="height" multiplier="1:1" id="z7h-aB-y6L"/>
@@ -78,7 +78,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-O6-Vv0">
-                                                <rect key="frame" x="302.33333333333331" y="0.0" width="90.666666666666686" height="91"/>
+                                                <rect key="frame" x="287.33333333333331" y="0.0" width="75.666666666666686" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bBn-O6-Vv0" secondAttribute="height" multiplier="1:1" id="30n-B7-R9B"/>
@@ -92,11 +92,11 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wy6-Cg-Zzp">
-                                        <rect key="frame" x="0.0" y="230.66666666666666" width="393" height="90.666666666666657"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wy6-Cg-Zzp">
+                                        <rect key="frame" x="0.0" y="266.66666666666663" width="363" height="75.666666666666686"/>
                                         <subviews>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPv-rq-KnU">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="90.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="IPv-rq-KnU" secondAttribute="height" multiplier="1:1" id="2re-Iy-e0s"/>
@@ -108,7 +108,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0F-T3-NLL">
-                                                <rect key="frame" x="100.66666666666669" y="0.0" width="91" height="90.666666666666671"/>
+                                                <rect key="frame" x="95.666666666666686" y="0.0" width="76" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="T0F-T3-NLL" secondAttribute="height" multiplier="1:1" id="3QF-LN-MJX"/>
@@ -121,7 +121,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKe-iS-xOU">
-                                                <rect key="frame" x="201.66666666666666" y="0.0" width="90.666666666666657" height="90.666666666666671"/>
+                                                <rect key="frame" x="191.66666666666666" y="0.0" width="75.666666666666657" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="nKe-iS-xOU" secondAttribute="height" multiplier="1:1" id="AIp-dx-kne"/>
@@ -134,12 +134,13 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYX-3R-fbQ">
-                                                <rect key="frame" x="302.33333333333331" y="0.0" width="90.666666666666686" height="90.666666666666671"/>
+                                                <rect key="frame" x="287.33333333333331" y="0.0" width="75.666666666666686" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wYX-3R-fbQ" secondAttribute="height" multiplier="1:1" id="MFQ-DC-SQZ"/>
                                                     <constraint firstAttribute="width" secondItem="wYX-3R-fbQ" secondAttribute="height" multiplier="1:1" id="NIm-ed-9j2"/>
                                                 </constraints>
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="x"/>
                                                 <connections>
@@ -148,11 +149,11 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ce4-eb-CBs">
-                                        <rect key="frame" x="0.0" y="331.33333333333331" width="393" height="90.666666666666686"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ce4-eb-CBs">
+                                        <rect key="frame" x="0.0" y="362.33333333333337" width="363" height="76"/>
                                         <subviews>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mC0-cW-H0n">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="90.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="76"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="mC0-cW-H0n" secondAttribute="height" multiplier="1:1" id="iYo-Tr-XWa"/>
@@ -164,7 +165,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qa-kG-JHv">
-                                                <rect key="frame" x="100.66666666666669" y="0.0" width="91" height="90.666666666666671"/>
+                                                <rect key="frame" x="95.666666666666686" y="0.0" width="76" height="76"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="6Qa-kG-JHv" secondAttribute="height" multiplier="1:1" id="Tab-pU-cJ7"/>
@@ -177,7 +178,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aK8-0M-U0z">
-                                                <rect key="frame" x="201.66666666666666" y="0.0" width="90.666666666666657" height="90.666666666666671"/>
+                                                <rect key="frame" x="191.66666666666666" y="0.0" width="75.666666666666657" height="76"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="aK8-0M-U0z" secondAttribute="height" multiplier="1:1" id="0cD-20-ZLz"/>
@@ -190,7 +191,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="se6-nh-vjD">
-                                                <rect key="frame" x="302.33333333333331" y="0.0" width="90.666666666666686" height="90.666666666666671"/>
+                                                <rect key="frame" x="287.33333333333331" y="0.0" width="75.666666666666686" height="76"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="se6-nh-vjD" secondAttribute="height" multiplier="1:1" id="cHc-9R-pmn"/>
@@ -204,11 +205,11 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-Cl-TEU">
-                                        <rect key="frame" x="0.0" y="432" width="393" height="90.666666666666629"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-Cl-TEU">
+                                        <rect key="frame" x="0.0" y="458.33333333333326" width="363" height="75.666666666666629"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs2-3G-ZcC">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="90.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qs2-3G-ZcC" secondAttribute="height" multiplier="1:1" id="y3C-hA-HHS"/>
@@ -220,7 +221,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73q-MY-oNA">
-                                                <rect key="frame" x="100.66666666666669" y="0.0" width="91" height="90.666666666666671"/>
+                                                <rect key="frame" x="95.666666666666686" y="0.0" width="76" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="73q-MY-oNA" secondAttribute="height" multiplier="1:1" id="EMz-sM-RjB"/>
@@ -233,7 +234,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-6s-iCD">
-                                                <rect key="frame" x="201.66666666666666" y="0.0" width="90.666666666666657" height="90.666666666666671"/>
+                                                <rect key="frame" x="191.66666666666666" y="0.0" width="75.666666666666657" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5LH-6s-iCD" secondAttribute="height" multiplier="1:1" id="318-NF-hrD"/>
@@ -246,7 +247,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpa-2h-sLt">
-                                                <rect key="frame" x="302.33333333333331" y="0.0" width="90.666666666666686" height="90.666666666666671"/>
+                                                <rect key="frame" x="287.33333333333331" y="0.0" width="75.666666666666686" height="75.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Hpa-2h-sLt" secondAttribute="height" multiplier="1:1" id="0G7-5a-wax"/>
@@ -260,14 +261,14 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eFA-qC-AMQ">
-                                        <rect key="frame" x="0.0" y="532.66666666666663" width="393" height="93.333333333333371"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eFA-qC-AMQ">
+                                        <rect key="frame" x="0.0" y="554" width="363" height="74.666666666666629"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lv8-hH-l5I">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="93.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="173.66666666666666" height="74.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Lv8-hH-l5I" secondAttribute="height" multiplier="2:1" id="YfA-DI-244"/>
+                                                    <constraint firstAttribute="width" secondItem="Lv8-hH-l5I" secondAttribute="height" multiplier="2:0.86" id="YfA-DI-244"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="0"/>
@@ -276,7 +277,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6h-wb-PaM">
-                                                <rect key="frame" x="196.66666666666666" y="0.0" width="92.999999999999972" height="93.333333333333329"/>
+                                                <rect key="frame" x="193.66666666666666" y="0.0" width="74.666666666666657" height="74.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="E6h-wb-PaM" secondAttribute="height" multiplier="1:1" id="XBm-PO-7q2"/>
@@ -289,7 +290,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzn-OD-w8f">
-                                                <rect key="frame" x="299.66666666666669" y="0.0" width="93.333333333333314" height="93.333333333333329"/>
+                                                <rect key="frame" x="288.33333333333331" y="0.0" width="74.666666666666686" height="74.666666666666671"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="lzn-OD-w8f" secondAttribute="height" multiplier="1:1" id="8o2-cS-unn"/>
@@ -310,10 +311,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
-                            <constraint firstItem="fnj-eW-dhE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="97" id="Bk9-v7-if3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fnj-eW-dhE" secondAttribute="trailing" constant="-16" id="EKn-LO-dol"/>
-                            <constraint firstItem="fnj-eW-dhE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J8O-Df-pCd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fnj-eW-dhE" secondAttribute="bottom" constant="36" id="S80-tA-MlL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fnj-eW-dhE" secondAttribute="trailing" constant="15" id="EKn-LO-dol"/>
+                            <constraint firstItem="fnj-eW-dhE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="J8O-Df-pCd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fnj-eW-dhE" secondAttribute="bottom" constant="40" id="S80-tA-MlL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -350,10 +350,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

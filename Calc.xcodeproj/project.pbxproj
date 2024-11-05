@@ -167,6 +167,14 @@
 			children = (
 				930593F62CC5149400987D1D /* CalculatorTheme.swift */,
 				93CB272B2CC6B96A00B87C71 /* MathEquation.swift */,
+				935DE2A52CD9557D00043EFD /* Color Themes */,
+			);
+			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		935DE2A52CD9557D00043EFD /* Color Themes */ = {
+			isa = PBXGroup;
+			children = (
 				935DE2872CD948CC00043EFD /* bloodOrangeTheme.swift */,
 				935DE28E2CD948CC00043EFD /* darkBlueTheme.swift */,
 				935DE28B2CD948CC00043EFD /* darkTheme.swift */,
@@ -178,7 +186,7 @@
 				935DE29D2CD94FF700043EFD /* purpleTheme.swift */,
 				935DE2992CD94FF700043EFD /* washedOutTheme.swift */,
 			);
-			path = "Data Layer";
+			path = "Color Themes";
 			sourceTree = "<group>";
 		};
 		93E7C13C2CBEE2D700BA186B = {

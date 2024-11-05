@@ -36,7 +36,7 @@ class CalcViewController: UIViewController {
     
     // MARK: - Color Themes
     private var currentTheme: CalculatorTheme {
-        return washedOutTheme
+        return darkTheme
     }
 
     // MARK: - Calculator Engine

@@ -5,19 +5,19 @@ extension CalcViewController {
     
     var darkTheme: CalculatorTheme {
         return CalculatorTheme(
-            extraFunctionColor: "#333333",
-            extraTitleColor: "#FFFFFF",
+            extraFunctionColor: "#a6a6a6",
+            extraTitleColor: "#000000",
             extraTitleFont: UIFont.systemFont(ofSize: 40, weight: .semibold),
             
-            operationFunctionColor: "#000000",
+            operationFunctionColor: "#ff9f0a",
             operationFunctionTitleColor: "#FFFFFF",
             operationFunctionTitleFont: UIFont.systemFont(ofSize: 40, weight: .bold),
             
-            pinpadColor: "#a6a6a6",
-            pinpadTitleColor: "#000000",
+            pinpadColor: "#333333",
+            pinpadTitleColor: "#FFFFF",
             pinpadTitleFont: UIFont.systemFont(ofSize: 40, weight: .medium),
             
-            backgroundColor: "#ff9f0a",
+            backgroundColor: "#000000",
             displayColor: "#FFFFFF",
             displayFont: UIFont.systemFont(ofSize: 100, weight: .regular)
         )
