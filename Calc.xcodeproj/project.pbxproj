@@ -21,6 +21,7 @@
 		935DE2A22CD94FF700043EFD /* lightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DE29C2CD94FF700043EFD /* lightTheme.swift */; };
 		935DE2A32CD94FF700043EFD /* purpleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DE29D2CD94FF700043EFD /* purpleTheme.swift */; };
 		935DE2A42CD94FF700043EFD /* pinkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DE29E2CD94FF700043EFD /* pinkTheme.swift */; };
+		9378760C2CE296F500114F8F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378760B2CE296F500114F8F /* ThemeManager.swift */; };
 		93CB272C2CC6B96A00B87C71 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CB272B2CC6B96A00B87C71 /* MathEquation.swift */; };
 		93D34C142CC823A8000D711C /* CalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D34C132CC823A8000D711C /* CalculatorEngine.swift */; };
 		93E7C1492CBEE2D700BA186B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7C1482CBEE2D700BA186B /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		935DE29C2CD94FF700043EFD /* lightTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lightTheme.swift; sourceTree = "<group>"; };
 		935DE29D2CD94FF700043EFD /* purpleTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = purpleTheme.swift; sourceTree = "<group>"; };
 		935DE29E2CD94FF700043EFD /* pinkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pinkTheme.swift; sourceTree = "<group>"; };
+		9378760B2CE296F500114F8F /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		93CB272B2CC6B96A00B87C71 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
 		93D34C132CC823A8000D711C /* CalculatorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorEngine.swift; sourceTree = "<group>"; };
 		93E7C1452CBEE2D700BA186B /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +160,7 @@
 			children = (
 				93D34C132CC823A8000D711C /* CalculatorEngine.swift */,
 				93348C322CCFF77C001DB55D /* MathInputController.swift */,
+				9378760B2CE296F500114F8F /* ThemeManager.swift */,
 			);
 			path = "Bussnes Logic Layer";
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				935DE2A42CD94FF700043EFD /* pinkTheme.swift in Sources */,
 				93E7C14D2CBEE2D700BA186B /* CalcViewController.swift in Sources */,
 				935DE2A02CD94FF700043EFD /* orangeTheme.swift in Sources */,
+				9378760C2CE296F500114F8F /* ThemeManager.swift in Sources */,
 				935DE2902CD948CC00043EFD /* electroTheme.swift in Sources */,
 				930CC4B42CD54A2E00B92767 /* String+Prefix.swift in Sources */,
 				935DE2A22CD94FF700043EFD /* lightTheme.swift in Sources */,
