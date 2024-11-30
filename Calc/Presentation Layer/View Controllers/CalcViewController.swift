@@ -36,7 +36,7 @@ class CalcViewController: UIViewController {
     
     // MARK: - Color Themes
     private var currentTheme: CalculatorTheme {
-        return darkTheme
+        return ThemeManager.shared.currentTheme
     }
 
     // MARK: - Calculator Engine
@@ -45,22 +45,41 @@ class CalcViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        decorateView()
-        // Do any additional setup after loading the view.
+        addThemeGestureRecogniser()
+        redecorateView()
+        
     }
     
+    // MARK: - Gestures
+    
+    private func addThemeGestureRecogniser() {
+        let themeGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecogniserDidTap(_:)))
+        themeGestureRecogniser.numberOfTapsRequired = 2
+        lcdDisplay.addGestureRecognizer(themeGestureRecogniser)
+    }
+                                                                                     
+    @objc private func themeGestureRecogniserDidTap(_ gesture: UITapGestureRecognizer) {
+        decorateViewWithNextTheme()
+        }
+    
     // MARK: - Decorate
-    private func decorateView(){
+    
+    private func decorateViewWithNextTheme() {
+        ThemeManager.shared.moveToNextTheme()
+        redecorateView()
+    }
+    
+    private func redecorateView() {
                 
         view.backgroundColor = UIColor(hex: currentTheme.backgroundColor)
         lcdDisplay.backgroundColor = .clear
         displayLabel.textColor = UIColor (hex: currentTheme.displayColor)
-        displayLabel.font = currentTheme.displayFont
+        displayLabel.font = UIFont.systemFont(ofSize: currentTheme.displayFont, weight: .regular)
         decorateButtons()
         
     }
     
-    private func decorateButtons(){
+    private func decorateButtons() {
         
         //Pin Pad buttons
         decoratePinPadButton(pinpadButton0, true)
@@ -88,7 +107,7 @@ class CalcViewController: UIViewController {
         decorateOperationButton(equalsButton)
     }
     
-    private func decorateButton(_ button: UIButton, _ usingSlicedImage: Bool = false){
+    private func decorateButton(_ button: UIButton, _ usingSlicedImage: Bool = false) {
         let image = usingSlicedImage ? UIImage(named: "CircleSliced.pdf") : UIImage(named: "Circle")
         button.setBackgroundImage(image, for: .normal)
         button.tintColor = .orange
@@ -100,7 +119,7 @@ class CalcViewController: UIViewController {
         
         button.tintColor = UIColor(hex: currentTheme.extraFunctionColor)
         button.setTitleColor(UIColor(hex: currentTheme.extraTitleColor), for: .normal)
-        button.titleLabel?.font = currentTheme.extraTitleFont
+        button.titleLabel?.font = UIFont.systemFont(ofSize: currentTheme.extraTitleFont, weight: .regular)
     }
     
     private func decorateOperationButton(_ button: UIButton) {
@@ -108,7 +127,7 @@ class CalcViewController: UIViewController {
         
         button.tintColor = UIColor(hex: currentTheme.operationFunctionColor)
         button.setTitleColor(UIColor(hex: currentTheme.operationFunctionTitleColor), for: .normal)
-        button.titleLabel?.font = currentTheme.operationFunctionTitleFont
+        button.titleLabel?.font = UIFont.systemFont(ofSize: currentTheme.operationFunctionTitleFont, weight: .regular)
     }
     
     private func decoratePinPadButton(_ button: UIButton, _ usingSlicedImage: Bool = false) {
@@ -116,7 +135,7 @@ class CalcViewController: UIViewController {
   
         button.tintColor = UIColor(hex: currentTheme.pinpadColor)
         button.setTitleColor(UIColor(hex: currentTheme.pinpadTitleColor), for: .normal)
-        button.titleLabel?.font = currentTheme.pinpadTitleFont
+        button.titleLabel?.font = UIFont.systemFont(ofSize: currentTheme.pinpadTitleFont, weight: .regular)
     }
     // MARK: - IBActions
     

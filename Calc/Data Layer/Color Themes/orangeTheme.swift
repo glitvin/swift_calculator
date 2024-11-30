@@ -1,25 +1,26 @@
 import Foundation
 import UIKit
 
-extension CalcViewController {
+extension ThemeManager {
     
     var orangeTheme: CalculatorTheme {
-        return CalculatorTheme(
+        return CalculatorTheme( id: "7",
+                                
             extraFunctionColor: "#DC6969",
             extraTitleColor: "#FFFFFF",
-            extraTitleFont: UIFont.systemFont(ofSize: 40, weight: .semibold),
+            extraTitleFont: 40,
             
             operationFunctionColor: "#D05353",
             operationFunctionTitleColor: "#FFFFFF",
-            operationFunctionTitleFont: UIFont.systemFont(ofSize: 40, weight: .bold),
+            operationFunctionTitleFont: 40,
             
             pinpadColor: "#CC4D4D",
             pinpadTitleColor: "#FFFFFF",
-            pinpadTitleFont: UIFont.systemFont(ofSize: 40, weight: .medium),
+            pinpadTitleFont: 40,
             
             backgroundColor: "#C94848",
             displayColor: "#FFFFFF",
-            displayFont: UIFont.systemFont(ofSize: 100, weight: .regular)
+            displayFont: 100
         )
     }
 }

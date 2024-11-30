@@ -1,20 +1,23 @@
 import Foundation
 import UIKit
 
-struct CalculatorTheme {
+struct CalculatorTheme: Codable {
+    let id: String
+    
     let extraFunctionColor: String
     let extraTitleColor: String
-    let extraTitleFont: UIFont
+    let extraTitleFont: CGFloat
     
     let operationFunctionColor: String
     let operationFunctionTitleColor: String
-    let operationFunctionTitleFont: UIFont
+    let operationFunctionTitleFont: CGFloat
     
     let pinpadColor: String
     let pinpadTitleColor: String
-    let pinpadTitleFont: UIFont
+    let pinpadTitleFont: CGFloat
     
     let backgroundColor: String
     let displayColor: String
-    let displayFont: UIFont
+    let displayFont: CGFloat
+    
 }
