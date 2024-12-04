@@ -13,6 +13,8 @@ extension ThemeManager {
             operationFunctionColor: "#D05353",
             operationFunctionTitleColor: "#FFFFFF",
             operationFunctionTitleFont: 40,
+            operationSelectedColor:         "#AB2F2F",
+            operationTitleSelectedColor:    "#ffffff",
             
             pinpadColor: "#CC4D4D",
             pinpadTitleColor: "#FFFFFF",

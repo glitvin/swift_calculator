@@ -11,6 +11,8 @@ struct CalculatorTheme: Codable {
     let operationFunctionColor: String
     let operationFunctionTitleColor: String
     let operationFunctionTitleFont: CGFloat
+    let operationSelectedColor: String
+    let operationTitleSelectedColor: String
     
     let pinpadColor: String
     let pinpadTitleColor: String
