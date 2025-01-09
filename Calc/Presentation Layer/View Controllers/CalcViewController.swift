@@ -1,13 +1,13 @@
 import UIKit
 
 
-class CalcViewController: UIViewController {
+class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     
     //MARK: - IBOutlets
 
     //LCD Display
-    @IBOutlet var lcdDisplay: UIView!
-    @IBOutlet var displayLabel: UILabel!
+    @IBOutlet var lcdDisplay: LCDDisplay!
+    
     
     //Pin Pad Buttons
     @IBOutlet var pinpadButton0: UIButton!
@@ -45,22 +45,23 @@ class CalcViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        addThemeGestureRecogniser()
+        lcdDisplay.isUserInteractionEnabled = true
+        addThemeGestureRecognizer()
         redecorateView()
-        
     }
     
     // MARK: - Gestures
-    
-    private func addThemeGestureRecogniser() {
-        let themeGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecogniserDidTap(_:)))
-        themeGestureRecogniser.numberOfTapsRequired = 2
-        lcdDisplay.addGestureRecognizer(themeGestureRecogniser)
+
+    private func addThemeGestureRecognizer() {
+        let themeGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecognizerDidTap(_:)))
+        themeGestureRecognizer.numberOfTapsRequired = 2
+        lcdDisplay.isUserInteractionEnabled = true
+        lcdDisplay.addGestureRecognizer(themeGestureRecognizer)
     }
-                                                                                     
-    @objc private func themeGestureRecogniserDidTap(_ gesture: UITapGestureRecognizer) {
+    
+    @objc private func themeGestureRecognizerDidTap(_ gesture: UITapGestureRecognizer) {
         decorateViewWithNextTheme()
-        }
+    }
     
     // MARK: - Decorate
     
@@ -73,8 +74,8 @@ class CalcViewController: UIViewController {
                 
         view.backgroundColor = UIColor(hex: currentTheme.backgroundColor)
         lcdDisplay.backgroundColor = .clear
-        displayLabel.textColor = UIColor (hex: currentTheme.displayColor)
-        displayLabel.font = UIFont.systemFont(ofSize: currentTheme.displayFont, weight: .regular)
+        lcdDisplay.label.textColor = UIColor (hex: currentTheme.displayColor)
+        lcdDisplay.label.font = UIFont.systemFont(ofSize: currentTheme.displayFont, weight: .regular)
         decorateButtons()
         
     }
@@ -157,7 +158,6 @@ class CalcViewController: UIViewController {
 
     // MARK: - IBActions
 
-    
     @IBAction private func clearPressed() {
         deselectOperationButtons()
         
@@ -236,7 +236,7 @@ class CalcViewController: UIViewController {
     
     // MARK: - Refresh LCD Display
     private func refreshLCDDisplay() {
-        displayLabel.text = calculatoreEngine.lcdDisplayText
+        lcdDisplay.label.text = calculatoreEngine.lcdDisplayText
     }
 }
 

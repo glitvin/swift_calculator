@@ -1,35 +1,87 @@
-//
-//  CalculatorEngineAdditionalTests.swift
-//  CalcTests
-//
-//  Created by Hlib Lytvyn on 09.12.2024.
-//
 
 import XCTest
+@testable import Calc
 
 final class CalculatorEngineAdditionalTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testBasicMath() throws {
+        var calculatorEngine = CalculatorEngine()
+        
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.addPressed()
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.equalsPressed()
+        
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "4")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    // MARK: - Equals button
+    
+    func testPinPadNumberWithEquals() throws {
+        var calculatorEngine = CalculatorEngine()
+        
+        for lhsPinPadNumber in 0...9 {
+            for rhsPinPadNumber in 0...9 {
+                
+                calculatorEngine.clearPressed() // this line can be removed after project will finished
+                calculatorEngine.numberPressed(lhsPinPadNumber)
+                calculatorEngine.addPressed()
+                calculatorEngine.numberPressed(rhsPinPadNumber)
+                calculatorEngine.equalsPressed()
+ 
+                XCTAssertTrue(
+                                calculatorEngine.lcdDisplayText == "\(lhsPinPadNumber + rhsPinPadNumber)",
+                                "Failed for \(lhsPinPadNumber) + \(rhsPinPadNumber): got \(calculatorEngine.lcdDisplayText)"
+                            )
+            }
         }
     }
-
+    
+    func testContinuousPinPadNumberWithEquals() throws {
+        for lhsPinPadNumber in 0...9 {
+            for rhsPinPadNumber in 0...9 {
+                var calculatorEngine = CalculatorEngine()
+                calculatorEngine.numberPressed(lhsPinPadNumber)
+                calculatorEngine.addPressed()
+                print("Pressed +, lcd: \(calculatorEngine.lcdDisplayText)")
+                calculatorEngine.numberPressed(rhsPinPadNumber)
+                print("Pressed \(rhsPinPadNumber), lcd: \(calculatorEngine.lcdDisplayText)")
+                calculatorEngine.equalsPressed()
+                XCTAssertTrue(
+                                calculatorEngine.lcdDisplayText == "\(lhsPinPadNumber + rhsPinPadNumber)",
+                                "Failed for \(lhsPinPadNumber) + \(rhsPinPadNumber): got \(calculatorEngine.lcdDisplayText)"
+                            )
+                
+            }
+        }
+    }
+    
+    // MARK: - Operation buttons
+    
+    func testPinPadNumberByPassingEquals() throws {
+        var calculatorEngine = CalculatorEngine()
+        
+        for lhsPinPadNumber in 0...9 {
+            for rhsPinPadNumber in 0...9 {
+                
+                calculatorEngine.clearPressed() // this line can be removed after project will finished
+                calculatorEngine.numberPressed(lhsPinPadNumber)
+                calculatorEngine.addPressed()
+                calculatorEngine.numberPressed(rhsPinPadNumber)
+                calculatorEngine.equalsPressed()
+ 
+                XCTAssertTrue(
+                                calculatorEngine.lcdDisplayText == "\(lhsPinPadNumber + rhsPinPadNumber)",
+                                "Failed for \(lhsPinPadNumber) + \(rhsPinPadNumber): got \(calculatorEngine.lcdDisplayText)"
+                            )
+                
+            }
+        }
+    }
 }
+
+    
+
+
+
+
