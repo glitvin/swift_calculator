@@ -41,7 +41,4 @@ extension LCDDisplay: UIContextMenuInteractionDelegate {
         return nil
     }
 
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, previewForDismissingMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
-        return nil
-    }
 }
