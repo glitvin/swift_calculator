@@ -159,18 +159,23 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     // MARK: - IBActions
 
     @IBAction private func clearPressed() {
-        deselectOperationButtons()
+        clearButton.bounce()
         
+        deselectOperationButtons()
         calculatoreEngine.clearPressed()
         refreshLCDDisplay()
     }
     
     @IBAction private func negatePressed() {
+        negateButton.bounce()
+        
         calculatoreEngine.negatePressed()
         refreshLCDDisplay()
     }
     
     @IBAction private func percentagePressed() {
+        percentageButton.bounce()
+        
         calculatoreEngine.percentagePressed()
         refreshLCDDisplay()
     }
@@ -178,6 +183,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     // MARK: - Operations
     
     @IBAction private func addPressed() {
+        plusButton.bounce()
+        
         deselectOperationButtons()
         selectOperationButtons(plusButton, true)
         
@@ -186,6 +193,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     @IBAction private func minusPressed() {
+        minusButton.bounce()
+        
         deselectOperationButtons()
         selectOperationButtons(minusButton, true)
         
@@ -195,6 +204,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     @IBAction private func multiplyPressed() {
+        multiplyButton.bounce()
+        
         deselectOperationButtons()
         selectOperationButtons(multiplyButton, true)
         
@@ -203,6 +214,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     @IBAction private func dividePressed() {
+        devideButton.bounce()
+        
         deselectOperationButtons()
         selectOperationButtons(devideButton, true)
         
@@ -211,6 +224,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     @IBAction private func equalsPressed() {
+        equalsButton.bounce()
+        
         deselectOperationButtons()
         
         calculatoreEngine.equalsPressed()
@@ -220,6 +235,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     // MARK: - Number Input
     
     @IBAction private func decimalPressed() {
+        decimalButton.bounce()
+        
         deselectOperationButtons()
         
         calculatoreEngine.decimalPressed()
@@ -227,6 +244,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     @IBAction private func numberPressed(_ sender: UIButton) {
+        sender.bounce()
+        
         deselectOperationButtons()
         
         let number = sender.tag

@@ -8,7 +8,7 @@ extension ThemeManager {
                                
             extraFunctionColor: "#F8F8F8",
             extraTitleColor: "#000000",
-            extraTitleFont: 10,
+            extraTitleFont: 40,
             
             operationFunctionColor: "#D6DEE5",
             operationFunctionTitleColor: "#00B4FF",
