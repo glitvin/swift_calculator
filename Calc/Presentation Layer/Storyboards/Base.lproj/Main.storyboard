@@ -346,6 +346,75 @@
             </objects>
             <point key="canvasLocation" x="-19.083969465648853" y="-27.464788732394368"/>
         </scene>
+        <!--History View Controller-->
+        <scene sceneID="BHq-lY-KUO">
+            <objects>
+                <tableViewController storyboardIdentifier="HistoryViewController" id="eY1-Gc-oeL" customClass="HistoryViewController" customModule="Calc" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="144" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="iCN-66-Gkb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EquationTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EquationTableViewCell" rowHeight="144" id="GkL-ts-UYD" customClass="EquationTableViewCell" customModule="Calc" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="144"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GkL-ts-UYD" id="mWc-Wt-0fn">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="144"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BB-B7-JXJ" userLabel="Rhs Label">
+                                            <rect key="frame" x="20" y="61.333333333333343" width="353" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ev-hl-iB6" userLabel="Result Label">
+                                            <rect key="frame" x="20" y="92.333333333333329" width="353" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5M-EI-G7k" userLabel="Lhs Label">
+                                            <rect key="frame" x="20" y="26" width="353" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="Ndk-Nx-De6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9BB-B7-JXJ" secondAttribute="trailing" id="4N5-tf-WPy"/>
+                                        <constraint firstItem="7ev-hl-iB6" firstAttribute="leading" secondItem="mWc-Wt-0fn" secondAttribute="leadingMargin" id="88b-YZ-MvS"/>
+                                        <constraint firstItem="9BB-B7-JXJ" firstAttribute="top" secondItem="Q5M-EI-G7k" secondAttribute="bottom" constant="8.3333333333333428" id="K9R-aj-ktH"/>
+                                        <constraint firstItem="9BB-B7-JXJ" firstAttribute="leading" secondItem="mWc-Wt-0fn" secondAttribute="leadingMargin" id="TCb-an-T7J"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7ev-hl-iB6" secondAttribute="trailing" id="XZJ-cU-I7H"/>
+                                        <constraint firstItem="Q5M-EI-G7k" firstAttribute="top" secondItem="mWc-Wt-0fn" secondAttribute="topMargin" constant="15" id="erq-e4-DFb"/>
+                                        <constraint firstItem="7ev-hl-iB6" firstAttribute="top" secondItem="9BB-B7-JXJ" secondAttribute="bottom" constant="10" id="fTN-Q5-XGC"/>
+                                        <constraint firstItem="7ev-hl-iB6" firstAttribute="leading" secondItem="mWc-Wt-0fn" secondAttribute="leadingMargin" id="kEK-CJ-mAc"/>
+                                        <constraint firstItem="Q5M-EI-G7k" firstAttribute="trailing" secondItem="9BB-B7-JXJ" secondAttribute="trailing" id="ni9-kL-Sw4"/>
+                                        <constraint firstItem="9BB-B7-JXJ" firstAttribute="leading" secondItem="mWc-Wt-0fn" secondAttribute="leadingMargin" id="ntm-t5-1mt"/>
+                                        <constraint firstItem="Q5M-EI-G7k" firstAttribute="leading" secondItem="9BB-B7-JXJ" secondAttribute="leading" id="pZu-KZ-CqC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lhsLabel" destination="Q5M-EI-G7k" id="PMB-xr-jEg"/>
+                                    <outlet property="resultLabel" destination="7ev-hl-iB6" id="jTv-GU-buA"/>
+                                    <outlet property="rhsLabel" destination="9BB-B7-JXJ" id="vgg-ta-qe9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eY1-Gc-oeL" id="1d0-lL-13v"/>
+                            <outlet property="delegate" destination="eY1-Gc-oeL" id="ZCX-ih-yPq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y92-Ad-cuX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722.90076335877859" y="-27.464788732394368"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

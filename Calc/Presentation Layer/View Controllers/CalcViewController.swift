@@ -1,10 +1,9 @@
 import UIKit
 
-
 class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     
     //MARK: - IBOutlets
-
+    
     //LCD Display
     @IBOutlet var lcdDisplay: LCDDisplay!
     
@@ -38,10 +37,10 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     private var currentTheme: CalculatorTheme {
         return ThemeManager.shared.currentTheme
     }
-
+    
     // MARK: - Calculator Engine
-    private var calculatoreEngine: CalculatorEngine = CalculatorEngine()
-
+    var calculatoreEngine: CalculatorEngine = CalculatorEngine()
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +50,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     // MARK: - Gestures
-
+    
     private func addThemeGestureRecognizer() {
         let themeGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecognizerDidTap(_:)))
         themeGestureRecognizer.numberOfTapsRequired = 2
@@ -71,7 +70,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     private func redecorateView() {
-                
+        
         view.backgroundColor = UIColor(hex: currentTheme.backgroundColor)
         lcdDisplay.backgroundColor = .clear
         lcdDisplay.label.textColor = UIColor (hex: currentTheme.displayColor)
@@ -135,12 +134,12 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     
     private func decoratePinPadButton(_ button: UIButton, _ usingSlicedImage: Bool = false) {
         decorateButton(button, usingSlicedImage)
-  
+        
         button.tintColor = UIColor(hex: currentTheme.pinpadColor)
         button.setTitleColor(UIColor(hex: currentTheme.pinpadTitleColor), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: currentTheme.pinpadTitleFont, weight: .regular)
     }
-
+    
     // MARK: - Select Operation Buttons
     
     private func deselectOperationButtons() {
@@ -149,15 +148,15 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         selectOperationButtons(minusButton, false)
         selectOperationButtons(plusButton, false)
     }
-
+    
     private func selectOperationButtons(_ button: UIButton, _ selected: Bool){
         button.tintColor = selected ? UIColor(hex: currentTheme.operationSelectedColor) : UIColor(hex: currentTheme.operationFunctionColor)
         button.isSelected = selected
     }
-
-
+    
+    
     // MARK: - IBActions
-
+    
     @IBAction private func clearPressed() {
         clearButton.bounce()
         
@@ -257,9 +256,6 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     private func refreshLCDDisplay() {
         lcdDisplay.label.text = calculatoreEngine.lcdDisplayText
     }
-}
-
-
     
 
-
+}
