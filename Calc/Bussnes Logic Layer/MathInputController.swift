@@ -39,6 +39,37 @@ struct MathInputController {
     var lcdDisplayText = ""
     private var rawInput: String = ""
     
+    // MARK: - Equatuion Wrapper
+    
+    var lhs: Decimal {
+        get {
+            return mathEquation.lhs
+        }
+        set {
+            mathEquation.lhs = newValue
+            lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
+        }
+    }
+    
+    var rhs: Decimal? {
+        get {
+            return mathEquation.rhs
+        }
+        set {
+            mathEquation.rhs = newValue
+            lcdDisplayText = formatLCDDisplay(mathEquation.rhs)
+        }
+    }
+    
+    var result: Decimal?{
+        get {
+            return mathEquation.result
+        }
+        set {
+            mathEquation.result = newValue
+            lcdDisplayText = formatLCDDisplay(mathEquation.result)
+        }
+    }
     
     // MARK: - Initialiser
     

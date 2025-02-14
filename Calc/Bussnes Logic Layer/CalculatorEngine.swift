@@ -40,10 +40,17 @@ struct CalculatorEngine {
     
     // MARK: - Operations
     mutating func addPressed() {
+        if inputController.isCompleted {
+            let result = inputController.result ?? Decimal(0)
+            inputController = MathInputController()
+            inputController.lhs = result
+        }
+        
         inputController.addPressed()
     }
     
     mutating func minusPressed() {
+        guard inputController.isCompleted == false else { return }
         inputController.minusPressed()
     }
     
@@ -74,7 +81,10 @@ struct CalculatorEngine {
     }
     
     mutating func numberPressed(_ number: Int) {
-        guard inputController.isCompleted == false else { return }
+        if inputController.isCompleted {
+            inputController = MathInputController()
+        }
+
         inputController.numberPressed(number)
     }
     

@@ -35,7 +35,7 @@ struct MathEquation{
         case .subtract:
             result = lhs - rhs
         case .multiply:
-            result = lhs * lhs
+            result = lhs * rhs
         case .divide:
                if rhs != 0 {
                    result = lhs / rhs
