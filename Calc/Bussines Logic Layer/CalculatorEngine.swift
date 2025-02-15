@@ -10,9 +10,12 @@ struct CalculatorEngine {
     private(set) var historyLog: [MathEquation] = []
     
     mutating func saveToHistory(_ equation: MathEquation) {
-           historyLog.append(equation)
-           if historyLog.count > 10 { historyLog.removeFirst() } 
-       }
+        let maxHistoryItems = 10
+        historyLog.append(equation)
+        if historyLog.count > maxHistoryItems { 
+            historyLog.removeFirst() 
+        } 
+    }
     
     func getHistory() -> [MathEquation] {
             return historyLog
@@ -25,7 +28,7 @@ struct CalculatorEngine {
     
     // MARK: - Extra Functions
     mutating func clearPressed() {
-        inputController = MathInputController()
+        inputController = MathInputController(from: inputController)
     }
     
     mutating func negatePressed() {
@@ -40,27 +43,48 @@ struct CalculatorEngine {
     
     // MARK: - Operations
     mutating func addPressed() {
-        if inputController.isCompleted {
-            let result = inputController.result ?? Decimal(0)
-            inputController = MathInputController()
-            inputController.lhs = result
+        if inputController.isReadyToExecute {
+            executeMathInputController()
+            populateFromResult()
         }
-        
+        if inputController.isCompleted {
+            populateFromResult()
+        }
         inputController.addPressed()
     }
     
     mutating func minusPressed() {
-        guard inputController.isCompleted == false else { return }
+        if inputController.isReadyToExecute {
+            executeMathInputController()
+            populateFromResult()
+        }
+        if inputController.isCompleted {
+            populateFromResult()
+        }
         inputController.minusPressed()
     }
     
     mutating func multiplyPressed() {
-        guard inputController.isCompleted == false else { return }
+        
+        if inputController.isReadyToExecute {
+            executeMathInputController()
+            populateFromResult()
+        }
+        
+        if inputController.isCompleted {
+            populateFromResult()
+        }
         inputController.multiplyPressed()
     }
     
     mutating func dividePressed() {
-        guard inputController.isCompleted == false else { return }
+        if inputController.isReadyToExecute {
+            executeMathInputController()
+            populateFromResult()
+        }
+        if inputController.isCompleted {
+            populateFromResult()
+        }
         inputController.dividePressed()
     }
     
@@ -68,12 +92,16 @@ struct CalculatorEngine {
         guard inputController.isCompleted == false else { return }
         inputController.execute()
         
+        executeMathInputController()
+    }
+    
+    private mutating func executeMathInputController() {
+        inputController.execute()
         let equation = MathEquation(lhs: inputController.mathEquation.lhs, rhs: inputController.mathEquation.rhs, operation: inputController.mathEquation.operation, result: inputController.mathEquation.result)
-            saveToHistory(equation)
+        saveToHistory(equation)
         
         printEquationToDebugConsole()
     }
-    
     // MARK: - Number Input
     mutating func decimalPressed() {
         guard inputController.isCompleted == false else { return }
@@ -82,14 +110,20 @@ struct CalculatorEngine {
     
     mutating func numberPressed(_ number: Int) {
         if inputController.isCompleted {
-            inputController = MathInputController()
+            inputController = MathInputController(from: inputController)
         }
 
         inputController.numberPressed(number)
     }
     
+    // MARK: - Pupulate new Math Input Controller
+    
+    private mutating func populateFromResult() {
+        inputController = MathInputController(from: inputController)
+    }
+    
     // MARK: - Debug Console
     private func printEquationToDebugConsole() {
-        print("Equation: " + inputController.mathEquation.generatePrintOut())
+        print("Equation: " + inputController.generatePrintOut())
     }
 }

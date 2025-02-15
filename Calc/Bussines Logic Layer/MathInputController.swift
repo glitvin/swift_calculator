@@ -71,10 +71,18 @@ struct MathInputController {
         }
     }
     
+    func generatePrintOut() -> String {
+        return mathEquation.generatePrintOut()
+    }
+    
     // MARK: - Initialiser
     
     init() {
         lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
+    }
+//
+    init(from mathInputController: MathInputController) {
+        lhs = mathInputController.result ?? Decimal(0)
     }
     
     // MARK: - Extra Functions
@@ -209,6 +217,17 @@ struct MathInputController {
     
     var isCompleted: Bool {
         return mathEquation.executed
+    }
+    
+    var isReadyToExecute: Bool {
+        guard mathEquation.executed == false else {
+            return false
+        }
+        if let _ = mathEquation.operation,
+           let _ = mathEquation.rhs {
+            return true
+        }
+        return false
     }
 }
 
