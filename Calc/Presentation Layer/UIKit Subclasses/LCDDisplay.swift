@@ -41,7 +41,23 @@ extension LCDDisplay: UIContextMenuInteractionDelegate {
     }
     
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, previewForHighlightingMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
-        return nil
+        // Создаем view для превью с нужным фоном
+        let previewView = UIView(frame: self.bounds)
+        previewView.backgroundColor = .black.withAlphaComponent(0.8)
+        previewView.layer.cornerRadius = 10
+        
+        // Добавляем label с текущим текстом
+        let previewLabel = UILabel(frame: label.frame)
+        previewLabel.text = label.text
+        previewLabel.font = label.font
+        previewLabel.textColor = label.textColor
+        previewLabel.textAlignment = label.textAlignment
+        previewView.addSubview(previewLabel)
+        
+        // Создаем и возвращаем превью с указанием target
+        let parameters = UIPreviewParameters()
+        parameters.backgroundColor = .clear
+        return UITargetedPreview(view: self, parameters: parameters)
     }
     
     private func showHistory() {
