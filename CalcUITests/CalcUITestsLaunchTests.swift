@@ -1,10 +1,3 @@
-//
-//  CalcUITestsLaunchTests.swift
-//  CalcUITests
-//
-//  Created by Hlib Lytvyn on 15.10.2024.
-//
-
 import XCTest
 
 final class CalcUITestsLaunchTests: XCTestCase {
