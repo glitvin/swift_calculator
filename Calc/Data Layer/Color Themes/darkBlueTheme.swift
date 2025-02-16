@@ -6,26 +6,24 @@ extension ThemeManager {
     
     var darkBlueTheme: CalculatorTheme {
         return CalculatorTheme(id: "2",
-                               
-            extraFunctionColor: "#1D1D1D",
-            extraTitleColor: "#727272",
+            extraFunctionColor: "#1A1A1A",
+            extraTitleColor: "#A0A0A0",
             extraTitleFont: 40,
             
-            operationFunctionColor: "#323232",
+            operationFunctionColor: "#2A2A2A",
             operationFunctionTitleColor: "#FFFFFF",
             operationFunctionTitleFont: 40,
-            operationSelectedColor:         "#4566B6",
-            operationTitleSelectedColor:    "#FFFFFF",
-                               
-            pinpadColor: "#4566B6",
+            operationSelectedColor: "#4B7BDA",
+            operationTitleSelectedColor: "#FFFFFF",
+            
+            pinpadColor: "#4B7BDA",
             pinpadTitleColor: "#FFFFFF",
             pinpadTitleFont: 40,
             
-            backgroundColor: "#1D1D1D",
-            displayColor: "#767676",
+            backgroundColor: "#1A1A1A",
+            displayColor: "#FFFFFF",
             displayFont: 100
         )
-        
     }
     
 }

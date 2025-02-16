@@ -6,18 +6,18 @@ extension ThemeManager {
     var darkTheme: CalculatorTheme {
         return CalculatorTheme(id: "3",
                                
-            extraFunctionColor: "#a6a6a6",
-            extraTitleColor: "#000000",
+            extraFunctionColor: "#8E8E93",
+            extraTitleColor: "#FFFFFF",
             extraTitleFont: 40,
             
-            operationFunctionColor: "#ff9f0a",
+            operationFunctionColor: "#FF9500",
             operationFunctionTitleColor: "#FFFFFF",
             operationFunctionTitleFont: 40,
-            operationSelectedColor:         "#ffffff",
-            operationTitleSelectedColor:    "#ff9f0a",
+            operationSelectedColor:         "#FFFFFF",
+            operationTitleSelectedColor:    "#FF9500",
             
-            pinpadColor: "#333333",
-            pinpadTitleColor: "#FFFFF",
+            pinpadColor: "#2C2C2E",
+            pinpadTitleColor: "#FFFFFF",
             pinpadTitleFont: 40,
             
             backgroundColor: "#000000",

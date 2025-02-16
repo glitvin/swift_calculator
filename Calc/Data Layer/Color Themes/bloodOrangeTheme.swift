@@ -7,21 +7,21 @@ extension ThemeManager {
     var bloodOrangeTheme: CalculatorTheme {
         return CalculatorTheme(id: "1",
             
-            extraFunctionColor: "#4A1D41",
+            extraFunctionColor: "#3A0D31",
             extraTitleColor: "#FFFFFF",
             extraTitleFont: 40,
             
-            operationFunctionColor: "#9C3766",
+            operationFunctionColor: "#B32672",
             operationFunctionTitleColor: "#FFFFFF",
             operationFunctionTitleFont: 40,
-            operationSelectedColor:         "#AA0E67",
-            operationTitleSelectedColor:    "#ffffff",
+            operationSelectedColor: "#CC1177",
+            operationTitleSelectedColor: "#FFFFFF",
             
-            pinpadColor: "#8D3362",
+            pinpadColor: "#A13872",
             pinpadTitleColor: "#FFFFFF",
             pinpadTitleFont: 40,
             
-            backgroundColor: "#C64661",
+            backgroundColor: "#E54771",
             displayColor: "#FFFFFF",
             displayFont: 100
         )

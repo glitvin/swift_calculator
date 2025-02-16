@@ -322,7 +322,7 @@
                     <connections>
                         <outlet property="clearButton" destination="bfD-u0-eYb" id="aYO-5a-sGE"/>
                         <outlet property="decimalButton" destination="E6h-wb-PaM" id="gCD-dA-kH1"/>
-                        <outlet property="devideButton" destination="bBn-O6-Vv0" id="bap-Ol-2Nz"/>
+                        <outlet property="divideButton" destination="bBn-O6-Vv0" id="uTD-qC-zee"/>
                         <outlet property="equalsButton" destination="lzn-OD-w8f" id="wbT-pz-0AO"/>
                         <outlet property="lcdDisplay" destination="8FP-9M-rIs" id="vv3-G3-HAo"/>
                         <outlet property="minusButton" destination="se6-nh-vjD" id="7gQ-l2-fQ6"/>

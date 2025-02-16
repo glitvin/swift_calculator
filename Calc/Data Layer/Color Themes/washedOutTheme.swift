@@ -4,24 +4,23 @@ import UIKit
 extension ThemeManager {
     
     var washedOutTheme: CalculatorTheme {
-        return CalculatorTheme( id: "10",
-                                
-            extraFunctionColor: "#ECF5FF",
-            extraTitleColor: "#0D2A4B",
+        return CalculatorTheme(id: "10",
+            extraFunctionColor: "#E3F2FF",        
+            extraTitleColor: "#001B3D",             
             extraTitleFont: 40,
             
-            operationFunctionColor: "#A3CFF9",
-            operationFunctionTitleColor: "#5487BA",
+            operationFunctionColor: "#90CAF9",    
+            operationFunctionTitleColor: "#1565C0", 
             operationFunctionTitleFont: 40,
-            operationSelectedColor:         "#0D2A4B",
-            operationTitleSelectedColor:    "#ffffff",
+            operationSelectedColor: "#0D47A1",     
+            operationTitleSelectedColor: "#FFFFFF",
             
-            pinpadColor: "#A3CFF9",
-            pinpadTitleColor: "#5487BA",
+            pinpadColor: "#90CAF9",               
+            pinpadTitleColor: "#1565C0",         
             pinpadTitleFont: 40,
             
-            backgroundColor: "#1D1D1D",
-            displayColor:"#FFFFFF",
+            backgroundColor: "#121212",            
+            displayColor: "#FFFFFF",               
             displayFont: 100
         )
     }

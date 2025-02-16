@@ -11,6 +11,29 @@ struct MathInputController {
     
     private var operandSide = OperandSide.leftHandSide
     
+    // MARK: - Initialise
+    
+    init() {
+        mathEquation = MathEquation(lhs: .zero)
+        lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
+    }
+
+    init(byPopulatingResultFrom mathInputController: MathInputController) {
+        mathEquation = MathEquation(
+            lhs: mathInputController.mathEquation.result ?? .zero
+        )
+        lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
+    }
+    
+    init(byPopulatingCalculatinFrom mathInputController: MathInputController) {
+        mathEquation = MathEquation(
+            lhs: mathInputController.result ?? .zero,
+            rhs: mathInputController.rhs,
+            operation: mathInputController.operation
+        )
+        lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
+    }
+    
     // MARK: - Contants
     
     private let groupingSymbol = Locale.current.groupingSeparator ?? ","
@@ -41,7 +64,16 @@ struct MathInputController {
     
     // MARK: - Equatuion Wrapper
     
-    var lhs: Decimal {
+    private var operation: MathEquation.OperationType? {
+        get {
+            return mathEquation.operation
+        }
+        set {
+            mathEquation.operation = newValue
+        }
+    }
+    
+    private var lhs: Decimal {
         get {
             return mathEquation.lhs
         }
@@ -51,7 +83,7 @@ struct MathInputController {
         }
     }
     
-    var rhs: Decimal? {
+    private var rhs: Decimal? {
         get {
             return mathEquation.rhs
         }
@@ -61,7 +93,7 @@ struct MathInputController {
         }
     }
     
-    var result: Decimal?{
+    private var result: Decimal? {
         get {
             return mathEquation.result
         }
@@ -75,15 +107,6 @@ struct MathInputController {
         return mathEquation.generatePrintOut()
     }
     
-    // MARK: - Initialiser
-    
-    init() {
-        lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
-    }
-//
-    init(from mathInputController: MathInputController) {
-        lhs = mathInputController.result ?? Decimal(0)
-    }
     
     // MARK: - Extra Functions
     
@@ -93,11 +116,11 @@ struct MathInputController {
         switch operandSide {
         case .leftHandSide:
             mathEquation.negateLeftHandSide()
-            displayNegateSymbolOndisplay(mathEquation.lhs)
+            displayNegateSymbolOndisplay(lhs)
             
         case .rightHandSide:
             mathEquation.negateRightHandSide()
-            displayNegateSymbolOndisplay(mathEquation.rhs)
+            displayNegateSymbolOndisplay(rhs)
         }
     }
     
@@ -117,10 +140,10 @@ struct MathInputController {
         switch operandSide {
         case .leftHandSide:
             mathEquation.applyPercentageToLeftHandSide()
-            lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
+            lcdDisplayText = formatLCDDisplay(lhs)
         case .rightHandSide:
             mathEquation.applyPercentageToRightHandSide()
-            lcdDisplayText = formatLCDDisplay(mathEquation.rhs)
+            lcdDisplayText = formatLCDDisplay(rhs)
         }
     }
     
@@ -129,7 +152,7 @@ struct MathInputController {
     mutating func addPressed() {
         guard isCompleted == false else { return }
         
-        mathEquation.operation = .add
+        operation = .add
         operandSide = .rightHandSide
         startEditingRightHandSide()
     }
@@ -137,7 +160,7 @@ struct MathInputController {
     mutating func minusPressed() {
         guard isCompleted == false else { return }
         
-        mathEquation.operation = .subtract
+        operation = .subtract
         operandSide = .rightHandSide
         startEditingRightHandSide()
     }
@@ -145,7 +168,7 @@ struct MathInputController {
     mutating func multiplyPressed() {
         guard isCompleted == false else { return }
         
-        mathEquation.operation = .multiply
+        operation = .multiply
         operandSide = .rightHandSide
         startEditingRightHandSide()
     }
@@ -153,7 +176,7 @@ struct MathInputController {
     mutating func dividePressed() {
         guard isCompleted == false else { return }
         
-        mathEquation.operation = .divide
+        operation = .divide
         operandSide = .rightHandSide
         startEditingRightHandSide()
     }
@@ -162,7 +185,7 @@ struct MathInputController {
         guard isCompleted == false else { return }
         
         mathEquation.execute()
-        lcdDisplayText = formatLCDDisplay(mathEquation.result)
+        lcdDisplayText = formatLCDDisplay(result)
     }
     
     // MARK: - Editing Right Hand Side
@@ -182,10 +205,10 @@ struct MathInputController {
         }
     }
     
-    mutating func numberPressed(_ number: Int) {
+    mutating func pinPadPressed(_ number: Int) {
         guard number >= 0, number <= 9 else { return }
         
-        if rawInput == "0" || (operandSide == .rightHandSide && mathEquation.rhs == nil) {
+        if rawInput == "0" || (operandSide == .rightHandSide && rhs == nil) {
             rawInput = "\(number)"
         } else {
             rawInput += "\(number)"
@@ -194,9 +217,9 @@ struct MathInputController {
         if let decimalValue = Decimal(string: rawInput) {
             switch operandSide {
             case .leftHandSide:
-                mathEquation.lhs = decimalValue
+                lhs = decimalValue
             case .rightHandSide:
-                mathEquation.rhs = decimalValue
+                rhs = decimalValue
             }
         }
         lcdDisplayText = isEnteringDecimal ? rawInput : (numberFormatter.string(for: Decimal(string: rawInput)) ?? rawInput)
@@ -223,8 +246,8 @@ struct MathInputController {
         guard mathEquation.executed == false else {
             return false
         }
-        if let _ = mathEquation.operation,
-           let _ = mathEquation.rhs {
+        if let _ = operation,
+           let _ = rhs {
             return true
         }
         return false

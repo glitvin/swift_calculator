@@ -5,22 +5,22 @@ extension ThemeManager {
     
     var electroTheme: CalculatorTheme {
         return CalculatorTheme(id: "4",
-            extraFunctionColor: "#0E0E41",
+            extraFunctionColor: "#1A1A3C",
             extraTitleColor: "#FFFFFF",
             extraTitleFont: 40,
             
-            operationFunctionColor: "#14145C",
-            operationFunctionTitleColor: "#4BE6A9",
+            operationFunctionColor: "#191970",
+            operationFunctionTitleColor: "#00FF9D",
             operationFunctionTitleFont: 40,
-            operationSelectedColor:         "#70729D",
-            operationTitleSelectedColor:    "#ffffff",
+            operationSelectedColor: "#4B4BA5",
+            operationTitleSelectedColor: "#FFFFFF",
             
-            pinpadColor: "#4BE6A9",
-            pinpadTitleColor: "#14145C",
+            pinpadColor: "#00FF9D",
+            pinpadTitleColor: "#191970",
             pinpadTitleFont: 40,
             
-            backgroundColor: "#14145C",
-            displayColor: "#FFFFFF",
+            backgroundColor: "#191970",
+            displayColor: "#00FF9D",
             displayFont: 100
         )
     }

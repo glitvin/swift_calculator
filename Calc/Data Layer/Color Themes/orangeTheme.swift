@@ -6,21 +6,21 @@ extension ThemeManager {
     var orangeTheme: CalculatorTheme {
         return CalculatorTheme( id: "7",
                                 
-            extraFunctionColor: "#DC6969",
+            extraFunctionColor: "#E57373",
             extraTitleColor: "#FFFFFF",
             extraTitleFont: 40,
             
-            operationFunctionColor: "#D05353",
+            operationFunctionColor: "#EF5350",
             operationFunctionTitleColor: "#FFFFFF",
             operationFunctionTitleFont: 40,
-            operationSelectedColor:         "#AB2F2F",
-            operationTitleSelectedColor:    "#ffffff",
+            operationSelectedColor: "#D32F2F",
+            operationTitleSelectedColor: "#FFFFFF",
             
-            pinpadColor: "#CC4D4D",
+            pinpadColor: "#F44336",
             pinpadTitleColor: "#FFFFFF",
             pinpadTitleFont: 40,
             
-            backgroundColor: "#C94848",
+            backgroundColor: "#E53935",
             displayColor: "#FFFFFF",
             displayFont: 100
         )

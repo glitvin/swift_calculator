@@ -1,27 +1,26 @@
-
 import Foundation
 import UIKit
 
 extension ThemeManager {
     
     var pinkTheme: CalculatorTheme {
-        return CalculatorTheme( id: "8",
-            extraFunctionColor: "#253C5B",
-            extraTitleColor:  "#EBF0EF",
+        return CalculatorTheme(id: "8",
+            extraFunctionColor: "#1E325C",       
+            extraTitleColor: "#FFFFFF",
             extraTitleFont: 40,
             
-            operationFunctionColor: "#294666",
-            operationFunctionTitleColor: "#EBF0EF",
+            operationFunctionColor: "#234B82",   
+            operationFunctionTitleColor: "#FFFFFF",
             operationFunctionTitleFont: 40,
-            operationSelectedColor:         "#0265FF",
-            operationTitleSelectedColor:    "#ffffff",
+            operationSelectedColor: "#0D7AFF",    
+            operationTitleSelectedColor: "#FFFFFF",
             
-            pinpadColor: "#FA569C",
-            pinpadTitleColor: "#EBF0EF",
+            pinpadColor: "#FF4081",              
+            pinpadTitleColor: "#FFFFFF",
             pinpadTitleFont: 40,
             
-            backgroundColor: "#16253A",
-            displayColor: "#EBF0EF",
+            backgroundColor: "#0A192F",          
+            displayColor: "#FFFFFF",
             displayFont: 100
         )
     }

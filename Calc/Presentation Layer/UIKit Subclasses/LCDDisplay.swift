@@ -48,7 +48,7 @@ extension LCDDisplay: UIContextMenuInteractionDelegate {
         if let parentVC = findViewController() as? CalcViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let historyVC = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as? HistoryViewController {
-                historyVC.datasource = parentVC.calculatoreEngine.getHistory() // Теперь история передается
+                historyVC.datasource = parentVC.calculatorEngine.getHistory() 
                 parentVC.present(historyVC, animated: true, completion: nil)
             }
         }

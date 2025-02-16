@@ -27,7 +27,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     @IBOutlet var percentageButton: UIButton!
     
     // Operations Buttons
-    @IBOutlet var devideButton: UIButton!
+    @IBOutlet var divideButton: UIButton!
     @IBOutlet var multiplyButton: UIButton!
     @IBOutlet var minusButton: UIButton!
     @IBOutlet var plusButton: UIButton!
@@ -39,9 +39,9 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     // MARK: - Calculator Engine
-    var calculatoreEngine: CalculatorEngine = CalculatorEngine()
+    var calculatorEngine: CalculatorEngine = CalculatorEngine()
     
-    // MARK: - Life Cycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         lcdDisplay.isUserInteractionEnabled = true
@@ -100,7 +100,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         decorateExtraFunctionButton(percentageButton)
         
         //Operations Buttons
-        decorateOperationButton(devideButton)
+        decorateOperationButton(divideButton)
         decorateOperationButton(multiplyButton)
         decorateOperationButton(minusButton)
         decorateOperationButton(plusButton)
@@ -143,7 +143,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     // MARK: - Select Operation Buttons
     
     private func deselectOperationButtons() {
-        selectOperationButtons(devideButton, false)
+        selectOperationButtons(divideButton, false)
         selectOperationButtons(multiplyButton, false)
         selectOperationButtons(minusButton, false)
         selectOperationButtons(plusButton, false)
@@ -161,21 +161,21 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         clearButton.bounce()
         
         deselectOperationButtons()
-        calculatoreEngine.clearPressed()
+        calculatorEngine.clearPressed()
         refreshLCDDisplay()
     }
     
     @IBAction private func negatePressed() {
         negateButton.bounce()
         
-        calculatoreEngine.negatePressed()
+        calculatorEngine.negatePressed()
         refreshLCDDisplay()
     }
     
     @IBAction private func percentagePressed() {
         percentageButton.bounce()
         
-        calculatoreEngine.percentagePressed()
+        calculatorEngine.percentagePressed()
         refreshLCDDisplay()
     }
     
@@ -187,7 +187,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         deselectOperationButtons()
         selectOperationButtons(plusButton, true)
         
-        calculatoreEngine.addPressed()
+        calculatorEngine.handleOperation(.add)
         refreshLCDDisplay()
     }
     
@@ -197,8 +197,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         deselectOperationButtons()
         selectOperationButtons(minusButton, true)
         
-        
-        calculatoreEngine.minusPressed()
+        calculatorEngine.handleOperation(.subtract)
         refreshLCDDisplay()
     }
     
@@ -208,17 +207,17 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         deselectOperationButtons()
         selectOperationButtons(multiplyButton, true)
         
-        calculatoreEngine.multiplyPressed()
+        calculatorEngine.handleOperation(.multiply)
         refreshLCDDisplay()
     }
     
     @IBAction private func dividePressed() {
-        devideButton.bounce()
+        divideButton.bounce()
         
         deselectOperationButtons()
-        selectOperationButtons(devideButton, true)
+        selectOperationButtons(divideButton, true)
         
-        calculatoreEngine.dividePressed()
+        calculatorEngine.handleOperation(.divide)
         refreshLCDDisplay()
     }
     
@@ -227,7 +226,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         
         deselectOperationButtons()
         
-        calculatoreEngine.equalsPressed()
+        calculatorEngine.equalsPressed()
         refreshLCDDisplay()
     }
     
@@ -238,7 +237,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         
         deselectOperationButtons()
         
-        calculatoreEngine.decimalPressed()
+        calculatorEngine.decimalPressed()
         refreshLCDDisplay()
     }
     
@@ -248,14 +247,13 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         deselectOperationButtons()
         
         let number = sender.tag
-        calculatoreEngine.numberPressed(number)
+        calculatorEngine.pinPadPressed(number)
         refreshLCDDisplay()
     }
     
     // MARK: - Refresh LCD Display
     private func refreshLCDDisplay() {
-        lcdDisplay.label.text = calculatoreEngine.lcdDisplayText
+        lcdDisplay.label.text = calculatorEngine.lcdDisplayText
     }
-    
 
 }

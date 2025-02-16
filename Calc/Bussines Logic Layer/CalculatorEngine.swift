@@ -1,5 +1,21 @@
 import Foundation
 
+struct CalculatorHistory {
+    private(set) var items: [MathEquation] = []
+    private let maxItems: Int
+    
+    init(maxItems: Int = 10) {
+        self.maxItems = maxItems
+    }
+    
+    mutating func add(_ equation: MathEquation) {
+        items.append(equation)
+        if items.count > maxItems {
+            items.removeFirst()
+        }
+    }
+}
+
 struct CalculatorEngine {
     
     // MARK: - Input Controller
@@ -7,18 +23,14 @@ struct CalculatorEngine {
     
     // MARK: - Equasion History
     
-    private(set) var historyLog: [MathEquation] = []
+    private var history = CalculatorHistory()
     
     mutating func saveToHistory(_ equation: MathEquation) {
-        let maxHistoryItems = 10
-        historyLog.append(equation)
-        if historyLog.count > maxHistoryItems { 
-            historyLog.removeFirst() 
-        } 
+        history.add(equation)
     }
     
     func getHistory() -> [MathEquation] {
-            return historyLog
+            return history.items
         }
     
     // MARK: - LCD Display
@@ -28,100 +40,86 @@ struct CalculatorEngine {
     
     // MARK: - Extra Functions
     mutating func clearPressed() {
-        inputController = MathInputController(from: inputController)
+        inputController = MathInputController()
     }
     
     mutating func negatePressed() {
-        guard inputController.isCompleted == false else { return }
+        populateFromResultIfNeeded()
         inputController.negatePressed()
     }
     
     mutating func percentagePressed() {
-        guard inputController.isCompleted == false else { return }
+        populateFromResultIfNeeded()
         inputController.percentagePressed()
     }
     
     // MARK: - Operations
-    mutating func addPressed() {
+    mutating func handleOperation(_ operation: MathEquation.OperationType) {
         if inputController.isReadyToExecute {
             executeMathInputController()
             populateFromResult()
         }
-        if inputController.isCompleted {
-            populateFromResult()
-        }
-        inputController.addPressed()
-    }
-    
-    mutating func minusPressed() {
-        if inputController.isReadyToExecute {
-            executeMathInputController()
-            populateFromResult()
-        }
-        if inputController.isCompleted {
-            populateFromResult()
-        }
-        inputController.minusPressed()
-    }
-    
-    mutating func multiplyPressed() {
+        populateFromResultIfNeeded()
         
-        if inputController.isReadyToExecute {
-            executeMathInputController()
-            populateFromResult()
+        switch operation {
+        case .add: inputController.addPressed()
+        case .subtract: inputController.minusPressed()
+        case .multiply: inputController.multiplyPressed()
+        case .divide: inputController.dividePressed()
         }
-        
-        if inputController.isCompleted {
-            populateFromResult()
-        }
-        inputController.multiplyPressed()
-    }
-    
-    mutating func dividePressed() {
-        if inputController.isReadyToExecute {
-            executeMathInputController()
-            populateFromResult()
-        }
-        if inputController.isCompleted {
-            populateFromResult()
-        }
-        inputController.dividePressed()
     }
     
     mutating func equalsPressed() {
-        guard inputController.isCompleted == false else { return }
-        inputController.execute()
+        if inputController.isCompleted {
+            inputController = MathInputController(byPopulatingCalculatinFrom: inputController)
+        }
         
+        guard inputController.isReadyToExecute else { return }
         executeMathInputController()
     }
     
     private mutating func executeMathInputController() {
         inputController.execute()
-        let equation = MathEquation(lhs: inputController.mathEquation.lhs, rhs: inputController.mathEquation.rhs, operation: inputController.mathEquation.operation, result: inputController.mathEquation.result)
+        let equation = MathEquation(
+            lhs: inputController.mathEquation.lhs,
+            rhs: inputController.mathEquation.rhs,
+            operation: inputController.mathEquation.operation,
+            result: inputController.mathEquation.result
+        )
         saveToHistory(equation)
         
         printEquationToDebugConsole()
     }
     // MARK: - Number Input
     mutating func decimalPressed() {
-        guard inputController.isCompleted == false else { return }
+        if inputController.isCompleted {
+            inputController = MathInputController()
+        }
         inputController.decimalPressed()
     }
     
-    mutating func numberPressed(_ number: Int) {
+    mutating func pinPadPressed(_ number: Int) {
+        guard number >= 0,
+              number <= 9 else { return }
+        
         if inputController.isCompleted {
-            inputController = MathInputController(from: inputController)
+            inputController = MathInputController()
         }
-
-        inputController.numberPressed(number)
+        inputController.pinPadPressed(number)
     }
     
     // MARK: - Pupulate new Math Input Controller
     
     private mutating func populateFromResult() {
-        inputController = MathInputController(from: inputController)
+        inputController = MathInputController(byPopulatingResultFrom: inputController)
     }
-    
+
+    private mutating func populateFromResultIfNeeded() {
+        if inputController.isCompleted {
+            populateFromResult()
+        }
+    }
+
     // MARK: - Debug Console
     private func printEquationToDebugConsole() {
         print("Equation: " + inputController.generatePrintOut())
