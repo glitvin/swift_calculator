@@ -16,7 +16,9 @@ final class CalculatorEngineHistoryTests: XCTestCase {
         calculatorEngine.equalsPressed()
         
         let history = calculatorEngine.getHistory()
-        XCTAssertEqual(history.count, 1)
-        XCTAssertEqual(history[0].result, 5)
+        XCTAssertEqual(history.count, 1, 
+            "History tracking test failed: Expected 1 history entry but got \(history.count)")
+        XCTAssertEqual(history[0].result, 5, 
+                       "History tracking test failed: Expected result 5 but got \(String(describing: history[0].result))")
     }
 } 

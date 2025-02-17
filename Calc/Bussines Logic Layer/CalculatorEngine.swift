@@ -38,23 +38,36 @@ struct CalculatorEngine {
         return inputController.lcdDisplayText
     }
     
+    // MARK: - Error Handling
+    private mutating func clearIfError() -> Bool {
+        if inputController.lcdDisplayText == "Error" {
+            clearPressed()
+            return true
+        }
+        return false
+    }
+    
     // MARK: - Extra Functions
     mutating func clearPressed() {
         inputController = MathInputController()
     }
     
     mutating func negatePressed() {
+        if clearIfError() { return }
         populateFromResultIfNeeded()
         inputController.negatePressed()
     }
     
     mutating func percentagePressed() {
+        if clearIfError() { return }
         populateFromResultIfNeeded()
         inputController.percentagePressed()
     }
     
     // MARK: - Operations
     mutating func handleOperation(_ operation: MathEquation.OperationType) {
+        if clearIfError() { return }
+        
         if inputController.isReadyToExecute {
             executeMathInputController()
             populateFromResult()
@@ -92,6 +105,8 @@ struct CalculatorEngine {
     }
     // MARK: - Number Input
     mutating func decimalPressed() {
+        clearIfError()
+        
         if inputController.isCompleted {
             inputController = MathInputController()
         }
@@ -101,6 +116,8 @@ struct CalculatorEngine {
     mutating func pinPadPressed(_ number: Int) {
         guard number >= 0,
               number <= 9 else { return }
+        
+        clearIfError()
         
         if inputController.isCompleted {
             inputController = MathInputController()
