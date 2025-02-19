@@ -41,6 +41,7 @@
 		93E7C1552CBEE2D800BA186B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 93E7C1542CBEE2D800BA186B /* Base */; };
 		93E7C16A2CBEE2D800BA186B /* CalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7C1692CBEE2D800BA186B /* CalcUITests.swift */; };
 		93E7C16C2CBEE2D800BA186B /* CalcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7C16B2CBEE2D800BA186B /* CalcUITestsLaunchTests.swift */; };
+		93EA24292D665346001CEA16 /* CalculatorEngineEqualsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EA24282D665346001CEA16 /* CalculatorEngineEqualsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		93E7C1652CBEE2D800BA186B /* CalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E7C1692CBEE2D800BA186B /* CalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUITests.swift; sourceTree = "<group>"; };
 		93E7C16B2CBEE2D800BA186B /* CalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		93EA24282D665346001CEA16 /* CalculatorEngineEqualsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEngineEqualsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -241,6 +243,7 @@
 			children = (
 				93E1166C2D624A7D002B1874 /* CalculatorEngineBasicOperationsTests.swift */,
 				93E1166D2D624A7D002B1874 /* CalculatorEngineContinuousTests.swift */,
+				93EA24282D665346001CEA16 /* CalculatorEngineEqualsTests.swift */,
 				93E1166E2D624A7D002B1874 /* CalculatorEngineHistoryTests.swift */,
 				93E1166F2D624A7D002B1874 /* CalculatorEngineSpecialOperationsTests.swift */,
 				934762632D63BC690086B81F /* CalculatorEngineNanTests.swift */,
@@ -476,6 +479,7 @@
 			files = (
 				93E116852D62518D002B1874 /* CalculatorEngineContinuousTests.swift in Sources */,
 				93E116842D625161002B1874 /* CalculatorEngineBasicOperationsTests.swift in Sources */,
+				93EA24292D665346001CEA16 /* CalculatorEngineEqualsTests.swift in Sources */,
 				93E116862D625194002B1874 /* CalculatorEngineHistoryTests.swift in Sources */,
 				93E116882D6251CB002B1874 /* MathEquationTests.swift in Sources */,
 				93E116872D62519A002B1874 /* CalculatorEngineSpecialOperationsTests.swift in Sources */,

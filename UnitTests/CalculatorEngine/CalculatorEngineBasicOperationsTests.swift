@@ -9,61 +9,54 @@ final class CalculatorEngineBasicOperationsTests: XCTestCase {
         calculatorEngine = CalculatorEngine()
     }
     
+    private func testBasicOperation(
+        operation: MathEquation.OperationType,
+        calculate: (Int, Int) -> Decimal,
+        skipZeroDivisor: Bool = false
+    ) throws {
+        for lhs in 0...9 {
+            for rhs in 0...9 {
+                if skipZeroDivisor && rhs == 0 { continue }
+                
+                calculatorEngine.pinPadPressed(lhs)
+                calculatorEngine.handleOperation(operation)
+                calculatorEngine.pinPadPressed(rhs)
+                calculatorEngine.equalsPressed()
+                
+                let expectedResult = calculate(lhs, rhs)
+                XCTAssertEqual(calculatorEngine.lcdDisplayText, expectedResult.formatted(), 
+                    "Basic math test failed: Expected '\(expectedResult.formatted())' but got '\(calculatorEngine.lcdDisplayText)'")
+            }
+        }
+    }
+    
     func testBasicMathAddition() throws {
-        for lhs in 0...9 {
-            for rhs in 0...9 {
-                calculatorEngine.pinPadPressed(lhs)
-                calculatorEngine.handleOperation(.add)
-                calculatorEngine.pinPadPressed(rhs)
-                calculatorEngine.equalsPressed()
-                
-                XCTAssertEqual(calculatorEngine.lcdDisplayText, "\(lhs + rhs)", 
-                    "Basic math test failed: Expected '\(lhs + rhs)' but got '\(calculatorEngine.lcdDisplayText)'")
-            }
-        }
+        try testBasicOperation(
+            operation: .add,
+            calculate: { Decimal($0 + $1) }
+        )
     }
-
+    
     func testBasicMathSubtraction() throws {
-        for lhs in 0...9 {
-            for rhs in 0...9 {
-                calculatorEngine.pinPadPressed(lhs)
-                calculatorEngine.handleOperation(.subtract)
-                calculatorEngine.pinPadPressed(rhs)
-                calculatorEngine.equalsPressed()
-                
-                XCTAssertEqual(calculatorEngine.lcdDisplayText, "\(lhs - rhs)", 
-                    "Basic math test failed: Expected '\(lhs - rhs)' but got '\(calculatorEngine.lcdDisplayText)'")
-            }
-        }
+        try testBasicOperation(
+            operation: .subtract,
+            calculate: { Decimal($0 - $1) }
+        )
     }
-
-
+    
     func testBasicMathMultiplication() throws {
-        for lhs in 0...9 {
-            for rhs in 0...9 {
-                calculatorEngine.pinPadPressed(lhs)
-                calculatorEngine.handleOperation(.multiply) 
-                calculatorEngine.pinPadPressed(rhs)
-                calculatorEngine.equalsPressed()
-                
-                XCTAssertEqual(calculatorEngine.lcdDisplayText, "\(lhs * rhs)", 
-                    "Basic math test failed: Expected '\(lhs * rhs)' but got '\(calculatorEngine.lcdDisplayText)'")
-            }
-        }
+        try testBasicOperation(
+            operation: .multiply,
+            calculate: { Decimal($0 * $1) }
+        )
     }
-
+    
     func testBasicMathDivision() throws {
-        for lhs in 0...9 {
-            for rhs in 1...9 {
-                calculatorEngine.pinPadPressed(lhs)
-                calculatorEngine.handleOperation(.divide)
-                calculatorEngine.pinPadPressed(rhs) 
-                calculatorEngine.equalsPressed()
-                
-                XCTAssertTrue(calculatorEngine.lcdDisplayText == (Decimal(lhs) / Decimal(rhs)).formatted(),
-                    "Basic math test failed: Expected '\(Decimal(lhs) / Decimal(rhs)).formatted()' but got '\(calculatorEngine.lcdDisplayText)'")
-            }
-        }
+        try testBasicOperation(
+            operation: .divide,
+            calculate: { Decimal($0) / Decimal($1) },
+            skipZeroDivisor: true
+        )
     }
 
     func testDecimalNumbers() throws {
