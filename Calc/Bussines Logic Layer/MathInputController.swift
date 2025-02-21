@@ -15,7 +15,7 @@ struct MathInputController {
     
     init() {
         mathEquation = MathEquation(lhs: .zero)
-        lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
+        lcdDisplayText = Constants.defaultValue
     }
 
     init(byPopulatingResultFrom mathInputController: MathInputController) {
@@ -34,12 +34,12 @@ struct MathInputController {
         lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
     }
     
-    // MARK: - Contants
+    // MARK: - Constants
     
     private let groupingSymbol = Locale.current.groupingSeparator ?? ","
     private let decimalSymbol = Locale.current.decimalSeparator ?? "."
     private let minusSymbol = "-"
-    private let errorMessage = "Error"
+    private let errorMessage = Constants.errorMessage
     
     // MARK: - Number Formatter
     
@@ -200,7 +200,7 @@ struct MathInputController {
     mutating func decimalPressed() {
         if !isEnteringDecimal {
             isEnteringDecimal = true
-            rawInput += rawInput.isEmpty ? "0." : "."
+            rawInput += rawInput.isEmpty ? "0\(Constants.decimalPoint)" : Constants.decimalPoint
             lcdDisplayText = rawInput
         }
     }

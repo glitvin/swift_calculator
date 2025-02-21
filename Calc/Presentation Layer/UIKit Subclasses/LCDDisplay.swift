@@ -24,16 +24,19 @@ extension LCDDisplay: UIContextMenuInteractionDelegate {
         guard let labelText = label.text, !labelText.isEmpty else { return nil }
         
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            UIMenu(title: "", children: [
-                UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc")) { _ in
+            UIMenu(title: Constants.menuTitle, children: [
+                UIAction(title: Constants.MenuActions.copy, 
+                        image: UIImage(systemName: Constants.Images.copy)) { _ in
                     UIPasteboard.general.string = labelText
                 },
-                UIAction(title: "Paste", image: UIImage(systemName: "doc.on.clipboard")) { _ in
+                UIAction(title: Constants.MenuActions.paste, 
+                        image: UIImage(systemName: Constants.Images.paste)) { _ in
                     if let pastedText = UIPasteboard.general.string {
                         self.label.text = pastedText
                     }
                 },
-                UIAction(title: "History", image: UIImage(systemName: "clock")) { _ in
+                UIAction(title: Constants.MenuActions.history, 
+                        image: UIImage(systemName: Constants.Images.history)) { _ in
                     self.showHistory()
                 }
             ])
@@ -42,8 +45,8 @@ extension LCDDisplay: UIContextMenuInteractionDelegate {
     
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, previewForHighlightingMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
         let previewView = UIView(frame: self.bounds)
-        previewView.backgroundColor = .black.withAlphaComponent(0.8)
-        previewView.layer.cornerRadius = 10
+        previewView.backgroundColor = .black.withAlphaComponent(Constants.previewBackgroundAlpha)
+        previewView.layer.cornerRadius = Constants.cornerRadius
         
         let previewLabel = UILabel(frame: label.frame)
         previewLabel.text = label.text
@@ -59,8 +62,8 @@ extension LCDDisplay: UIContextMenuInteractionDelegate {
     
     private func showHistory() {
         if let parentVC = findViewController() as? CalcViewController {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let historyVC = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as? HistoryViewController {
+            let storyboard = UIStoryboard(name: UIStoryboard.Constants.mainStoryboard, bundle: nil)
+            if let historyVC = storyboard.instantiateViewController(withIdentifier: UIStoryboard.Constants.historyViewController) as? HistoryViewController {
                 historyVC.datasource = parentVC.calculatorEngine.getHistory() 
                 parentVC.present(historyVC, animated: true, completion: nil)
             }

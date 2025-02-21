@@ -4,25 +4,24 @@ import UIKit
 extension ThemeManager {
     
     var orangeTheme: CalculatorTheme {
-        return CalculatorTheme( id: "7",
-                                
+        return CalculatorTheme(id: CalculatorTheme.Constants.ThemeIds.orange,
             extraFunctionColor: "#E57373",
             extraTitleColor: "#FFFFFF",
-            extraTitleFont: 40,
+            extraTitleFont: CalculatorTheme.Constants.buttonFont,
             
             operationFunctionColor: "#EF5350",
             operationFunctionTitleColor: "#FFFFFF",
-            operationFunctionTitleFont: 40,
+            operationFunctionTitleFont: CalculatorTheme.Constants.buttonFont,
             operationSelectedColor: "#D32F2F",
             operationTitleSelectedColor: "#FFFFFF",
             
             pinpadColor: "#F44336",
             pinpadTitleColor: "#FFFFFF",
-            pinpadTitleFont: 40,
+            pinpadTitleFont: CalculatorTheme.Constants.buttonFont,
             
             backgroundColor: "#E53935",
             displayColor: "#FFFFFF",
-            displayFont: 100
+            displayFont: CalculatorTheme.Constants.displayFont
         )
     }
 }

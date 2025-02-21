@@ -4,7 +4,7 @@ struct CalculatorHistory {
     private(set) var items: [MathEquation] = []
     private let maxItems: Int
     
-    init(maxItems: Int = 10) {
+    init(maxItems: Int = Constants.maxHistoryItems) {
         self.maxItems = maxItems
     }
     

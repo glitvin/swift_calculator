@@ -108,7 +108,7 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     private func decorateButton(_ button: UIButton, _ usingSlicedImage: Bool = false) {
-        let image = usingSlicedImage ? UIImage(named: "CircleSliced.pdf") : UIImage(named: "Circle")
+        let image = usingSlicedImage ? UIImage(named: UIImage.keys.circleSlised) : UIImage(named: UIImage.keys.circle)
         button.setBackgroundImage(image, for: .normal)
         button.tintColor = .orange
         button.backgroundColor = .clear

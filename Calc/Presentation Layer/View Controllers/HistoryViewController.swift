@@ -23,7 +23,7 @@ class HistoryViewController: UITableViewController {
     
     // MARK: - Table View data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return Constants.numberOfSections
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +31,7 @@ class HistoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EquationTableViewCell", for: indexPath) as? EquationTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? EquationTableViewCell else {
             return UITableViewCell()
         }
         

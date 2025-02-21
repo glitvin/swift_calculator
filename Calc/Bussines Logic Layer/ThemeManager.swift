@@ -8,7 +8,7 @@ class ThemeManager {
     
     // MARK: - Data Storage
     
-    private var dataStore = DataStoreManager(key: "Calc.ThemeManager.ThemeIndex")
+    private var dataStore = DataStoreManager(key: ThemeManager.Constants.dataStoreKey)
     
     // MARK: - Themes
     

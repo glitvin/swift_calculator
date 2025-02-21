@@ -24,7 +24,7 @@ final class CalcUITests: XCTestCase {
                 
         let resultLabel = app.staticTexts.element(boundBy: 0)
 
-        XCTAssertTrue(resultLabel.exists, "Результирующий UILabel не найден.")
+        XCTAssertTrue(resultLabel.exists, "Result UILabel not found.")
         let actualResult = resultLabel.label
             let expectedResult = "3"
             

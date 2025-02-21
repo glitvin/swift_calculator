@@ -5,25 +5,25 @@ import UIKit
 extension ThemeManager {
     
     var bloodOrangeTheme: CalculatorTheme {
-        return CalculatorTheme(id: "1",
+        return CalculatorTheme(id: CalculatorTheme.Constants.ThemeIds.bloodOrange,
             
             extraFunctionColor: "#3A0D31",
             extraTitleColor: "#FFFFFF",
-            extraTitleFont: 40,
+            extraTitleFont: CalculatorTheme.Constants.buttonFont,
             
             operationFunctionColor: "#B32672",
             operationFunctionTitleColor: "#FFFFFF",
-            operationFunctionTitleFont: 40,
+            operationFunctionTitleFont: CalculatorTheme.Constants.buttonFont,
             operationSelectedColor: "#CC1177",
             operationTitleSelectedColor: "#FFFFFF",
             
             pinpadColor: "#A13872",
             pinpadTitleColor: "#FFFFFF",
-            pinpadTitleFont: 40,
+            pinpadTitleFont: CalculatorTheme.Constants.buttonFont,
             
             backgroundColor: "#E54771",
             displayColor: "#FFFFFF",
-            displayFont: 100
+            displayFont: CalculatorTheme.Constants.displayFont
         )
     }
 }
