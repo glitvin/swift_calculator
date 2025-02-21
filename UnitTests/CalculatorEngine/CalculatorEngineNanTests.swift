@@ -1,50 +1,40 @@
 import XCTest
 @testable import Calc
 
-final class CalculatorEngineNanTests: XCTestCase {
-
-    private var calculatorEngine: CalculatorEngine!
-    
-    override func setUp() {
-        super.setUp()
-        calculatorEngine = CalculatorEngine()
-    }
+final class CalculatorEngineNanTests: CalculatorEngineBaseTests {
     
     func testDivisionByZero() throws {
-        calculatorEngine.pinPadPressed(5)
-        calculatorEngine.handleOperation(.divide)
-        calculatorEngine.pinPadPressed(0)
-        calculatorEngine.equalsPressed()
+        enterNumber(5)
+        performOperation(.divide)
+        enterNumber(0)
+        pressEquals()
         
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "Error", 
-            "Division by zero test failed: Expected 'Error' but got '\(calculatorEngine.lcdDisplayText)'")
+        assertDisplayEquals("Error", "Division by zero test failed")
     }
     
     func testZeroDividedByZero() throws {
-        calculatorEngine.pinPadPressed(0)
-        calculatorEngine.handleOperation(.divide)
-        calculatorEngine.pinPadPressed(0)
-        calculatorEngine.equalsPressed()
+        enterNumber(0)
+        performOperation(.divide)
+        enterNumber(0)
+        pressEquals()
         
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "Error", 
-            "Zero divided by zero test failed: Expected 'Error' but got '\(calculatorEngine.lcdDisplayText)'")
+        assertDisplayEquals("Error", "Zero divided by zero test failed")
     }
     
     func testAdditionAfterError() throws {
         // First create an Error state
-        calculatorEngine.pinPadPressed(5)
-        calculatorEngine.handleOperation(.divide)
-        calculatorEngine.pinPadPressed(0)
-        calculatorEngine.equalsPressed()
+        enterNumber(5)
+        performOperation(.divide)
+        enterNumber(0)
+        pressEquals()
+        assertDisplayEquals("Error", "Division by zero should show Error")
         
         // Perform new calculation
-        calculatorEngine.pinPadPressed(2)
-        calculatorEngine.handleOperation(.add)
-        calculatorEngine.pinPadPressed(3)
-        calculatorEngine.equalsPressed()
+        enterNumber(2)
+        performOperation(.add)
+        enterNumber(3)
+        pressEquals()
         
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "5", 
-            "Addition after Error test failed: Expected '5' but got '\(calculatorEngine.lcdDisplayText)'")
+        assertDisplayEquals("5", "Addition after Error test failed")
     }
-    
 }

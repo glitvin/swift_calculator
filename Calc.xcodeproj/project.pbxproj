@@ -25,7 +25,9 @@
 		935DE2A32CD94FF700043EFD /* purpleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DE29D2CD94FF700043EFD /* purpleTheme.swift */; };
 		935DE2A42CD94FF700043EFD /* pinkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935DE29E2CD94FF700043EFD /* pinkTheme.swift */; };
 		9365DF692D55219900EB49E0 /* UIButton+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9365DF682D55219900EB49E0 /* UIButton+Animations.swift */; };
+		936D0A812D68D9AE006BF51F /* CalculatorEngineBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936D0A802D68D9AE006BF51F /* CalculatorEngineBaseTests.swift */; };
 		9378760C2CE296F500114F8F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378760B2CE296F500114F8F /* ThemeManager.swift */; };
+		93CA8F932D68D688008A6ADC /* CalculatorEngineClearTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA8F922D68D688008A6ADC /* CalculatorEngineClearTests.swift */; };
 		93CB272C2CC6B96A00B87C71 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CB272B2CC6B96A00B87C71 /* MathEquation.swift */; };
 		93CBBE4F2D19D61100E2EFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CBBE4D2D19D61100E2EFA1 /* Main.storyboard */; };
 		93D34C142CC823A8000D711C /* CalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D34C132CC823A8000D711C /* CalculatorEngine.swift */; };
@@ -93,7 +95,9 @@
 		935DE29D2CD94FF700043EFD /* purpleTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = purpleTheme.swift; sourceTree = "<group>"; };
 		935DE29E2CD94FF700043EFD /* pinkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pinkTheme.swift; sourceTree = "<group>"; };
 		9365DF682D55219900EB49E0 /* UIButton+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animations.swift"; sourceTree = "<group>"; };
+		936D0A802D68D9AE006BF51F /* CalculatorEngineBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEngineBaseTests.swift; sourceTree = "<group>"; };
 		9378760B2CE296F500114F8F /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		93CA8F922D68D688008A6ADC /* CalculatorEngineClearTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEngineClearTests.swift; sourceTree = "<group>"; };
 		93CB272B2CC6B96A00B87C71 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
 		93CBBE4E2D19D61100E2EFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93D34C132CC823A8000D711C /* CalculatorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorEngine.swift; sourceTree = "<group>"; };
@@ -241,12 +245,14 @@
 		93E116702D624A7D002B1874 /* CalculatorEngine */ = {
 			isa = PBXGroup;
 			children = (
+				936D0A802D68D9AE006BF51F /* CalculatorEngineBaseTests.swift */,
 				93E1166C2D624A7D002B1874 /* CalculatorEngineBasicOperationsTests.swift */,
 				93E1166D2D624A7D002B1874 /* CalculatorEngineContinuousTests.swift */,
 				93EA24282D665346001CEA16 /* CalculatorEngineEqualsTests.swift */,
 				93E1166E2D624A7D002B1874 /* CalculatorEngineHistoryTests.swift */,
 				93E1166F2D624A7D002B1874 /* CalculatorEngineSpecialOperationsTests.swift */,
 				934762632D63BC690086B81F /* CalculatorEngineNanTests.swift */,
+				93CA8F922D68D688008A6ADC /* CalculatorEngineClearTests.swift */,
 			);
 			path = CalculatorEngine;
 			sourceTree = "<group>";
@@ -479,10 +485,12 @@
 			files = (
 				93E116852D62518D002B1874 /* CalculatorEngineContinuousTests.swift in Sources */,
 				93E116842D625161002B1874 /* CalculatorEngineBasicOperationsTests.swift in Sources */,
+				93CA8F932D68D688008A6ADC /* CalculatorEngineClearTests.swift in Sources */,
 				93EA24292D665346001CEA16 /* CalculatorEngineEqualsTests.swift in Sources */,
 				93E116862D625194002B1874 /* CalculatorEngineHistoryTests.swift in Sources */,
 				93E116882D6251CB002B1874 /* MathEquationTests.swift in Sources */,
 				93E116872D62519A002B1874 /* CalculatorEngineSpecialOperationsTests.swift in Sources */,
+				936D0A812D68D9AE006BF51F /* CalculatorEngineBaseTests.swift in Sources */,
 				934762642D63BC690086B81F /* CalculatorEngineNanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

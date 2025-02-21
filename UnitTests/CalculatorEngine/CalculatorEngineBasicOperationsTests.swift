@@ -1,35 +1,7 @@
 import XCTest
 @testable import Calc
 
-final class CalculatorEngineBasicOperationsTests: XCTestCase {
-    private var calculatorEngine: CalculatorEngine!
-    
-    override func setUp() {
-        super.setUp()
-        calculatorEngine = CalculatorEngine()
-    }
-    
-    private func testBasicOperation(
-        operation: MathEquation.OperationType,
-        calculate: (Int, Int) -> Decimal,
-        skipZeroDivisor: Bool = false
-    ) throws {
-        for lhs in 0...9 {
-            for rhs in 0...9 {
-                if skipZeroDivisor && rhs == 0 { continue }
-                
-                calculatorEngine.pinPadPressed(lhs)
-                calculatorEngine.handleOperation(operation)
-                calculatorEngine.pinPadPressed(rhs)
-                calculatorEngine.equalsPressed()
-                
-                let expectedResult = calculate(lhs, rhs)
-                XCTAssertEqual(calculatorEngine.lcdDisplayText, expectedResult.formatted(), 
-                    "Basic math test failed: Expected '\(expectedResult.formatted())' but got '\(calculatorEngine.lcdDisplayText)'")
-            }
-        }
-    }
-    
+final class CalculatorEngineBasicOperationsTests: CalculatorEngineBaseTests {
     func testBasicMathAddition() throws {
         try testBasicOperation(
             operation: .add,
@@ -61,41 +33,80 @@ final class CalculatorEngineBasicOperationsTests: XCTestCase {
 
     func testDecimalNumbers() throws {
         // Test 0.1
-        calculatorEngine.pinPadPressed(0)
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "0", 
-            "First digit test failed: Expected '0' but got '\(calculatorEngine.lcdDisplayText)'")
+        enterNumber(0)
+        assertDisplayEquals("0", "First digit test failed")
         
         calculatorEngine.decimalPressed()
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "0.", 
-            "Decimal point test failed: Expected '0.' but got '\(calculatorEngine.lcdDisplayText)'")
+        assertDisplayEquals("0.", "Decimal point test failed")
         
-        calculatorEngine.pinPadPressed(1)
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "0.1", 
-            "Decimal number test failed: Expected '0.1' but got '\(calculatorEngine.lcdDisplayText)'")
+        enterNumber(1)
+        assertDisplayEquals("0.1", "Decimal number test failed")
         
         // Test 1.5
-        calculatorEngine = CalculatorEngine() // Reset calculator
-        calculatorEngine.pinPadPressed(1)
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "1", 
-            "First digit test failed: Expected '1' but got '\(calculatorEngine.lcdDisplayText)'")
+        calculatorEngine = CalculatorEngine() 
+        enterNumber(1)
+        assertDisplayEquals("1", "First digit test failed")
         
         calculatorEngine.decimalPressed()
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "1.", 
-            "Decimal point test failed: Expected '1.' but got '\(calculatorEngine.lcdDisplayText)'")
+        assertDisplayEquals("1.", "Decimal point test failed")
         
-        calculatorEngine.pinPadPressed(5)
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "1.5", 
-            "Decimal number test failed: Expected '1.5' but got '\(calculatorEngine.lcdDisplayText)'")
+        enterNumber(5)
+        assertDisplayEquals("1.5", "Decimal number test failed")
     }
 
-    func testNegativeNumbers() throws {
-        calculatorEngine.pinPadPressed(2)
-        calculatorEngine.negatePressed()
-        calculatorEngine.handleOperation(.subtract)
-        calculatorEngine.pinPadPressed(3)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "-5", 
-            "Negative numbers test failed: Expected '-5' but got '\(calculatorEngine.lcdDisplayText)'")
+    func testDecimalNumbersWithAddition() throws {
+        // Test: 1.5 + 0.5 = 2
+        enterNumber(1)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        performOperation(.add)
+        enterNumber(0)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        pressEquals()
+        assertDisplayEquals("2", "Decimal numbers with operation test failed")
     }
-} 
+
+    func testDecimalNumbersWithSubtraction() throws {
+        // Test: 1.5 - 0.5 = 1
+        calculatorEngine = CalculatorEngine() 
+        enterNumber(1)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        performOperation(.subtract)
+        enterNumber(0)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        pressEquals()
+        assertDisplayEquals("1", "Decimal numbers with operation test failed")
+    }
+    
+    func testDecimalNumbersWithMultiplication() throws {
+        // Test: 1.5 * 0.5 = 0.75
+        calculatorEngine = CalculatorEngine() 
+        enterNumber(1)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        performOperation(.multiply) 
+        enterNumber(0)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        pressEquals()
+        assertDisplayEquals("0,75", "Decimal numbers with operation test failed")
+    }
+
+    func testDecimalNumbersWithDivision() throws {
+        // Test: 1.5 / 0.5 = 3
+        calculatorEngine = CalculatorEngine() 
+        enterNumber(1)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        performOperation(.divide)
+        enterNumber(0)
+        calculatorEngine.decimalPressed()
+        enterNumber(5)
+        pressEquals()
+        assertDisplayEquals("3", "Decimal numbers with operation test failed")
+    }
+
+}

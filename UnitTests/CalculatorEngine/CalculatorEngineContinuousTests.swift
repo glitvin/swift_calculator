@@ -1,59 +1,49 @@
 import XCTest
 @testable import Calc
 
-final class CalculatorEngineContinuousTests: XCTestCase {
-    private var calculatorEngine: CalculatorEngine!
-    
-    override func setUp() {
-        super.setUp()
-        calculatorEngine = CalculatorEngine()
-    }
+final class CalculatorEngineContinuousTests: CalculatorEngineBaseTests {
     
     func testContinuousOperationsAddition() throws {
-        calculatorEngine.pinPadPressed(2)
-        calculatorEngine.handleOperation(.add)
-        calculatorEngine.pinPadPressed(3)
-        calculatorEngine.handleOperation(.add)
-        calculatorEngine.pinPadPressed(4)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "9", 
-            "Continuous addition test failed: Expected '9' but got '\(calculatorEngine.lcdDisplayText)'")
+        testContinuousOperation(
+            operation: .add,
+            firstNumber: 2,
+            secondNumber: 3,
+            thirdNumber: 4,
+            expectedResult: "9",
+            message: "Continuous addition test failed"
+        )
     }
 
     func testContinuousOperationsSubtraction() throws {
-        calculatorEngine.pinPadPressed(9)
-        calculatorEngine.handleOperation(.subtract)
-        calculatorEngine.pinPadPressed(5)
-        calculatorEngine.handleOperation(.subtract)
-        calculatorEngine.pinPadPressed(2)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "2", 
-            "Continuous subtraction test failed: Expected '2' but got '\(calculatorEngine.lcdDisplayText)'")
+        testContinuousOperation(
+            operation: .subtract,
+            firstNumber: 9,
+            secondNumber: 5,
+            thirdNumber: 2,
+            expectedResult: "2",
+            message: "Continuous subtraction test failed"
+        )
     }
     
     func testContinuousOperationsMultiplication() throws {
-        calculatorEngine.pinPadPressed(9)
-        calculatorEngine.handleOperation(.multiply)
-        calculatorEngine.pinPadPressed(5)
-        calculatorEngine.handleOperation(.multiply)
-        calculatorEngine.pinPadPressed(2)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "90", 
-            "Continuous multiplication test failed: Expected '90' but got '\(calculatorEngine.lcdDisplayText)'")
+        testContinuousOperation(
+            operation: .multiply,
+            firstNumber: 9,
+            secondNumber: 5,
+            thirdNumber: 2,
+            expectedResult: "90",
+            message: "Continuous multiplication test failed"
+        )
     }
 
     func testContinuousOperationsDivision() throws {
-        calculatorEngine.pinPadPressed(8)
-        calculatorEngine.handleOperation(.divide)
-        calculatorEngine.pinPadPressed(2)
-        calculatorEngine.handleOperation(.divide)
-        calculatorEngine.pinPadPressed(2)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertEqual(calculatorEngine.lcdDisplayText, "2", 
-            "Continuous division test failed: Expected '2' but got '\(calculatorEngine.lcdDisplayText)'")
-    }   
+        testContinuousOperation(
+            operation: .divide,
+            firstNumber: 8,
+            secondNumber: 2,
+            thirdNumber: 2,
+            expectedResult: "2",
+            message: "Continuous division test failed"
+        )
+    }
 } 
