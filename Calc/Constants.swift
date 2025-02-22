@@ -90,5 +90,12 @@ extension CalculatorTheme {
     }
 }
 
+// MARK: - Calculator Engine
+
+extension CalculatorEngine {
+    struct Constants {
+        static let dataStoreKey = "Calc.CalculatorEngine.PreviousResult"
+    }
+}
 
 

@@ -32,10 +32,20 @@ struct CalculatorEngine {
     func getHistory() -> [MathEquation] {
             return history.items
         }
+    // MARK: - Data Storage
+    
+    private var dataStore = DataStoreManager(key: CalculatorEngine.Constants.dataStoreKey)
+    
     
     // MARK: - LCD Display
     var lcdDisplayText: String {
         return inputController.lcdDisplayText
+    }
+    
+    // MARK: - Initialise
+    
+    init() {
+        restoreFromLastSession()
     }
     
     // MARK: - Error Handling
@@ -50,6 +60,7 @@ struct CalculatorEngine {
     // MARK: - Extra Functions
     mutating func clearPressed() {
         inputController = MathInputController()
+        deletePreviousSession()
     }
     
     mutating func negatePressed() {
@@ -100,8 +111,8 @@ struct CalculatorEngine {
             result: inputController.mathEquation.result
         )
         saveToHistory(equation)
-        
         printEquationToDebugConsole()
+        saveSession()
     }
     // MARK: - Number Input
     mutating func decimalPressed() {
@@ -140,5 +151,30 @@ struct CalculatorEngine {
     // MARK: - Debug Console
     private func printEquationToDebugConsole() {
         print("Equation: " + inputController.generatePrintOut())
+    }
+    
+    // MARK: - Restoring Session
+    private func deletePreviousSession() {
+        dataStore.deleteValue()
+    }
+    
+    private func saveSession() {
+        
+        let mathEquation = inputController.mathEquation
+        let encoder = JSONEncoder()
+        if let encodedEquation = try? encoder.encode(mathEquation) {
+            dataStore.set(encodedEquation)
+        }
+    }
+    
+    private mutating func restoreFromLastSession() {
+        guard let encodedEquation = dataStore.getValue() as? Data else {
+            return
+        }
+        
+        let decoder = JSONDecoder()
+        if let previousEquation = try? decoder.decode(MathEquation.self, from: encodedEquation) {
+            inputController = MathInputController(byRestoringFrom: previousEquation)
+        }
     }
 }

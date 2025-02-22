@@ -34,6 +34,13 @@ struct MathInputController {
         lcdDisplayText = formatLCDDisplay(mathEquation.lhs)
     }
     
+    init(byRestoringFrom equation: MathEquation){
+        lhs = equation.lhs
+        operation = equation.operation
+        rhs = equation.rhs
+        result = equation.result
+    }
+    
     // MARK: - Constants
     
     private let groupingSymbol = Locale.current.groupingSeparator ?? ","

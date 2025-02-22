@@ -1,8 +1,8 @@
 import Foundation
 
-struct MathEquation{
+struct MathEquation: Codable {
     
-    enum OperationType {
+    enum OperationType: Codable {
         case add
         case subtract
         case multiply

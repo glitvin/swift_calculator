@@ -33,6 +33,8 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     @IBOutlet var plusButton: UIButton!
     @IBOutlet var equalsButton: UIButton!
     
+    var needToDisplayWelcomeIntro = true
+    
     // MARK: - Color Themes
     private var currentTheme: CalculatorTheme {
         return ThemeManager.shared.currentTheme
@@ -47,6 +49,33 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         lcdDisplay.isUserInteractionEnabled = true
         addThemeGestureRecognizer()
         redecorateView()
+        refreshLCDDisplay()
+        preperForWelcomeIntro()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super .viewDidAppear(animated)
+        if needToDisplayWelcomeIntro {
+            needToDisplayWelcomeIntro = false
+            dispayWelcomeIntro()
+        }
+    }
+    
+    private func preperForWelcomeIntro() {
+        lcdDisplay.alpha = 0
+    }
+    
+    private func dispayWelcomeIntro() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
+            self?.fadeInLCDDisplay()
+        }
+    }
+    
+    private func fadeInLCDDisplay() {
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut) { [weak self] in
+            self?.lcdDisplay.alpha = 1
+        } completion: { _ in
+        }
     }
     
     // MARK: - Gestures
@@ -130,6 +159,9 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
         button.setTitleColor(UIColor(hex: currentTheme.operationTitleSelectedColor), for: .selected)
         button.titleLabel?.font = UIFont.systemFont(ofSize: currentTheme.operationFunctionTitleFont, weight: .regular)
         
+        if button.isSelected {
+            selectOperationButtons(button, true)
+        }
     }
     
     private func decoratePinPadButton(_ button: UIButton, _ usingSlicedImage: Bool = false) {
