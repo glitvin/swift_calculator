@@ -66,14 +66,29 @@ class CalcViewController: UIViewController, UIEditMenuInteractionDelegate {
     }
     
     private func dispayWelcomeIntro() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
-            self?.fadeInLCDDisplay()
+        let didRestoreFromLastSession = calculatorEngine.restoreFromLastSession()
+        refreshLCDDisplay()
+        
+        let timeDelay: TimeInterval = 0.25
+        if didRestoreFromLastSession {
+            slideInLCDDisplay(withDelay: timeDelay)
+        } else {
+            fadeInLCDDisplay(withDelay: timeDelay)
         }
     }
     
-    private func fadeInLCDDisplay() {
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut) { [weak self] in
+    private func fadeInLCDDisplay(withDelay delay: TimeInterval) {
+        UIView.animate(withDuration: 1, delay: delay, options: .curveEaseOut) { [weak self] in 
             self?.lcdDisplay.alpha = 1
+        } completion: { _ in
+        }
+    }
+    
+    private func slideInLCDDisplay(withDelay delay: TimeInterval) {
+        lcdDisplay.transform = CGAffineTransform(translationX: 0, y: lcdDisplay.frame.height * 0.5)
+        UIView.animate(withDuration: 0.35, delay: delay, options: .curveEaseOut) { [weak self] in 
+            self?.lcdDisplay.alpha = 1
+            self?.lcdDisplay.transform = CGAffineTransform(translationX: 0, y: 0)
         } completion: { _ in
         }
     }

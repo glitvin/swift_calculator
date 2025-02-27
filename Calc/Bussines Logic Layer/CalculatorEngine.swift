@@ -42,12 +42,6 @@ struct CalculatorEngine {
         return inputController.lcdDisplayText
     }
     
-    // MARK: - Initialise
-    
-    init() {
-        restoreFromLastSession()
-    }
-    
     // MARK: - Error Handling
     private mutating func clearIfError() -> Bool {
         if inputController.lcdDisplayText == "Error" {
@@ -167,14 +161,16 @@ struct CalculatorEngine {
         }
     }
     
-    private mutating func restoreFromLastSession() {
+    mutating func restoreFromLastSession() -> Bool {
         guard let encodedEquation = dataStore.getValue() as? Data else {
-            return
+            return false
         }
         
         let decoder = JSONDecoder()
         if let previousEquation = try? decoder.decode(MathEquation.self, from: encodedEquation) {
             inputController = MathInputController(byRestoringFrom: previousEquation)
+            return true
         }
+        return false
     }
 }
