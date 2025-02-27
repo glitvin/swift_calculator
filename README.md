@@ -2,6 +2,8 @@
 
 A modern iOS calculator application built with Swift that features multiple themes and a calculation history.
 
+![image](https://github.com/user-attachments/assets/5a4041b9-456b-4157-b0d8-cf75c30c861d)
+
 ## Features
 
 - Basic arithmetic operations (addition, subtraction, multiplication, division)
