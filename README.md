@@ -2,7 +2,7 @@
 
 A modern iOS calculator application built with Swift that features multiple themes and a calculation history.
 
-![image](https://github.com/user-attachments/assets/5a4041b9-456b-4157-b0d8-cf75c30c861d)
+<img width="300" alt="Image" src="https://github.com/user-attachments/assets/5a4041b9-456b-4157-b0d8-cf75c30c861d" />
 
 ## Features
 
